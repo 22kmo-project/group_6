@@ -6,11 +6,11 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var tiliRouter = require('./routes/tili');
-var tunnusRouter = require('./routes/tunnus');
+//var tiliRouter = require('./routes/tili');
+//var tunnusRouter = require('./routes/tunnus');
 var asiakasRouter = require('./routes/asiakas');
-var tilitapahtumatRouter = require('./routes/tilitapahtumat');
-var loginRouter = require('./routes/login');
+//var tilitapahtumatRouter = require('./routes/tilitapahtumat');
+//var loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -22,13 +22,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/tili', tiliRouter);
-app.use('/tunnus', tunnusRouter);
+//app.use('/tili', tiliRouter);
+//app.use('/tunnus', tunnusRouter);
 app.use('/asiakas', asiakasRouter);
-app.use('/tilitapahtumat', tilitapahtumatRouter);
-app.use('/login', loginRouter);
+//app.use('/tilitapahtumat', tilitapahtumatRouter);
+//app.use('/login', loginRouter);
 
-function authenticateToken(req, res, next) {
+/*function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
   
@@ -44,6 +44,6 @@ function authenticateToken(req, res, next) {
   
       next()
     })
-  }
+  }*/
 
 module.exports = app;
