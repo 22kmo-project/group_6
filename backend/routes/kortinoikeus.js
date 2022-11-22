@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const tili = require('../models/tili_model');
+const tili = require('../models/kortinoikeus_model');
 
 router.get('/',
     function (request, response) {

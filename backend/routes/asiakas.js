@@ -8,8 +8,8 @@ router.get('/',
             if (err) {
                 response.json(err);
             } else {
-                console.log(dbResult.rows);
-                response.json(dbResult.rows);
+                console.log(dbResult);
+                response.json(dbResult);
             }
         })
     });
@@ -20,7 +20,7 @@ router.get('/:id?',
             if (err) {
                 response.json(err);
             } else {
-                response.json(dbResult.rows);
+                response.json(dbResult);
             }
         })
     });

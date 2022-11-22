@@ -6,8 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-//var tiliRouter = require('./routes/tili');
-//var tunnusRouter = require('./routes/tunnus');
+var tiliRouter = require('./routes/tili');
+var tunnusRouter = require('./routes/tunnus');
 var asiakasRouter = require('./routes/asiakas');
 //var tilitapahtumatRouter = require('./routes/tilitapahtumat');
 //var loginRouter = require('./routes/login');
@@ -22,8 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-//app.use('/tili', tiliRouter);
-//app.use('/tunnus', tunnusRouter);
+app.use('/tili', tiliRouter);
+app.use('/tunnus', tunnusRouter);
 app.use('/asiakas', asiakasRouter);
 //app.use('/tilitapahtumat', tilitapahtumatRouter);
 //app.use('/login', loginRouter);
