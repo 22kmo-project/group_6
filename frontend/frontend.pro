@@ -12,11 +12,13 @@ CONFIG += c++17
 SOURCES += \
     asiakaswindow.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    myurl.cpp
 
 HEADERS += \
     asiakaswindow.h \
-    mainwindow.h
+    mainwindow.h \
+    myurl.h
 
 FORMS += \
     asiakaswindow.ui \

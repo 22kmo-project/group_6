@@ -23,13 +23,13 @@ void MainWindow::on_btnLogin_clicked()
     jsonObj.insert("id_card",id_card);
     jsonObj.insert("card_pin",card_pin);
 
-    QString site_url="http://localhost:3000/login";
+    QString site_url=MyUrl::getBaseUrl()+"/login";
     QNetworkRequest request((site_url));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
 
     loginManager = new QNetworkAccessManager(this);
-    connect(loginManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(loginSlot(QNetworkReply*)));
+    connect(loginManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(loginSlot(QNetworkReply*)));
 
     reply = loginManager->post(request, QJsonDocument(jsonObj).toJson());
 
@@ -39,16 +39,18 @@ void MainWindow::loginSlot(QNetworkReply *reply)
 {
     response_data=reply->readAll();
     qDebug()<<response_data;
+    int compare=QString::compare(response_data,"false");
+    qDebug()<<compare;
 
-    /*
-    if(id_card.length()==4){
-        objectAsiakasWindow=new AsiakasWindow(id_card);
-        objectAsiakasWindow->show();
-    }
-    else {
+    if(compare==0){
         ui->textIdUser->clear();
         ui->textcard_pin->clear();
         ui->labelInfo->setText("Käyttäjätunnus tai salasana ei täsmää");
-    }*/
+    }
+    else {
+         objectAsiakasWindow=new AsiakasWindow(id_card);
+         objectAsiakasWindow->setWebToken(response_data);
+         objectAsiakasWindow->show();
+    }
 }
 

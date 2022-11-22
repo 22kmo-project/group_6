@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "asiakaswindow.h"
+#include "myurl.h"
 
 #include <QtNetwork>
 #include <QNetworkAccessManager>

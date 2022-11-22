@@ -15,8 +15,15 @@ public:
     explicit AsiakasWindow(QString id_card,QWidget *parent = nullptr);
     ~AsiakasWindow();
 
+    const QString &getWebToken() const;
+    void setWebToken(const QString &newWebToken);
+
+private slots:
+    void on_btnTiedot_clicked();
+
 private:
     Ui::AsiakasWindow *ui;
+    QString webToken;
 };
 
 #endif // ASIAKASWINDOW_H
