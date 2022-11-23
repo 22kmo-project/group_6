@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete objectAsiakasWindow;
+    objectAsiakasWindow=nullptr;
 }
 
 
@@ -39,18 +41,28 @@ void MainWindow::loginSlot(QNetworkReply *reply)
 {
     response_data=reply->readAll();
     qDebug()<<response_data;
-    int compare=QString::compare(response_data,"false");
-    qDebug()<<compare;
+    int test=QString::compare(response_data,"false");
+    qDebug()<<test;
 
-    if(compare==0){
-        ui->textIdUser->clear();
-        ui->textcard_pin->clear();
-        ui->labelInfo->setText("Käyttäjätunnus tai salasana ei täsmää");
+    if(response_data.length()==0){
+        ui->labelInfo->setText("Palvelin ei vastaa");
     }
-    else {
-         objectAsiakasWindow=new AsiakasWindow(id_card);
-         objectAsiakasWindow->setWebToken(response_data);
-         objectAsiakasWindow->show();
+    else{
+        if(QString::compare(response_data,"-4078")==0){
+            ui->labelInfo->setText("Virhe tietokantayhteydessä");
+        }
+        else{
+            if(test==0){
+                ui->textIdUser->clear();
+                ui->textcard_pin->clear();
+                ui->labelInfo->setText("Käyttäjätunnus tai salasana ei täsmää");
+            }
+            else {
+                objectAsiakasWindow=new AsiakasWindow(id_card);
+                objectAsiakasWindow->setWebToken(response_data);
+                objectAsiakasWindow->show();
+            }
+        }
     }
 }
 

@@ -17,7 +17,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>90</x>
       <y>71</y>
       <width>131</width>
       <height>26</height>
@@ -29,7 +29,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Käyttäjätunnus</string>
+     <string>Kortin numero</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="textcard_pin">
@@ -66,9 +66,9 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>90</x>
       <y>120</y>
-      <width>74</width>
+      <width>151</width>
       <height>26</height>
      </rect>
     </property>
@@ -78,7 +78,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Salasana</string>
+     <string>Kortin PIN-koodi</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="textIdUser">
