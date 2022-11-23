@@ -9,6 +9,8 @@ var usersRouter = require('./routes/users');
 var tiliRouter = require('./routes/tili');
 var tunnusRouter = require('./routes/tunnus');
 var asiakasRouter = require('./routes/asiakas');
+var kortinoikeusRouter = require('./routes/kortinoikeus');
+var tilioikeusRouter = require('./routes/tilioikeus');
 //var tilitapahtumatRouter = require('./routes/tilitapahtumat');
 //var loginRouter = require('./routes/login');
 
@@ -25,6 +27,8 @@ app.use('/users', usersRouter);
 app.use('/tili', tiliRouter);
 app.use('/tunnus', tunnusRouter);
 app.use('/asiakas', asiakasRouter);
+app.use('/kortinoikeus', kortinoikeusRouter);
+app.use('/tilioikeus', tilioikeusRouter);
 //app.use('/tilitapahtumat', tilitapahtumatRouter);
 //app.use('/login', loginRouter);
 

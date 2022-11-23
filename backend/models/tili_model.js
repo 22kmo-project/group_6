@@ -13,8 +13,8 @@ const tili = {
     add: function (add_data, callback) {
        
             return db.query(
-                'insert into tili (id_tili,account_balance,id_card) values(?,?,?)',
-                [add_data.id_tili, add_data.account_balance, add_data.id_card],
+                'insert into tili (id_tili,account_balance) values(?,?)',
+                [add_data.id_tili, add_data.account_balance],
                 callback);
     },
    

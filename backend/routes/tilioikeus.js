@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const kortinoikeus = require('../models/kortinoikeus_model');
+const tilioikeus = require('../models/tilioikeus_model');
 
 router.get('/',
     function (request, response) {
-        kortinoikeus.getAll(function (err, dbResult) {
+        tilioikeus.getAll(function (err, dbResult) {
             if (err) {
                 response.json(err);
             } else {
@@ -16,7 +16,7 @@ router.get('/',
 
 router.get('/:id?',
     function (request, response) {
-        kortinoikeus.getById(request.params.id, function (err, dbResult) {
+        tilioikeus.getById(request.params.id, function (err, dbResult) {
             if (err) {
                 response.json(err);
             } else {
@@ -28,7 +28,7 @@ router.get('/:id?',
 
 router.post('/', 
 function(request, response) {
-  kortinoikeus.add(request.body, function(err, dbResult) {
+  tilioikeus.add(request.body, function(err, dbResult) {
     if (err) {
       response.json(err);
     } else {
@@ -40,7 +40,7 @@ function(request, response) {
 
 router.delete('/:id', 
 function(request, response) {
-  kortinoikeus.delete(request.params.id, function(err, dbResult) {
+  tilioikeus.delete(request.params.id, function(err, dbResult) {
     if (err) {
       response.json(err);
     } else {
@@ -52,7 +52,7 @@ function(request, response) {
 
 router.put('/:id', 
 function(request, response) {
-  kortinoikeus.update(request.params.id, request.body, function(err, dbResult) {
+  tilioikeus.update(request.params.id, request.body, function(err, dbResult) {
     if (err) {
       response.json(err);
     } else {
