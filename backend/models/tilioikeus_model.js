@@ -13,8 +13,8 @@ const tilioikeus = {
     add: function (add_data, callback) {
        
             return db.query(
-                'insert into tilioikeus (id_tilioikeus,id_tili,id_user) values(?,?,?)',
-                [add_data.id_tilioikeus, add_data.id_tili, add_data.id_user],
+                'insert into tilioikeus (id_tilioikeus,id_tili,id_asiakas) values(?,?,?)',
+                [add_data.id_tilioikeus, add_data.id_tili, add_data.id_asiakas],
                 callback);
     },
    
@@ -24,8 +24,8 @@ const tilioikeus = {
     update: function (id, update_data, callback) {
        
             return db.query(
-                'update tilioikeus set id_tilioikeus=?,id_tili=?, id_user=?',
-                [update_data.id_tilioikeus, update_data.id_tili, update_data.id_user, id],
+                'update tilioikeus set id_tilioikeus=?,id_tili=?, id_asiakas=?',
+                [update_data.id_tilioikeus, update_data.id_tili, update_data.id_asiakas, id],
                 callback);
    
     },

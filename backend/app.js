@@ -11,7 +11,7 @@ var tunnusRouter = require('./routes/tunnus');
 var asiakasRouter = require('./routes/asiakas');
 var kortinoikeusRouter = require('./routes/kortinoikeus');
 var tilioikeusRouter = require('./routes/tilioikeus');
-//var tilitapahtumatRouter = require('./routes/tilitapahtumat');
+var tilitapahtumaRouter = require('./routes/tilitapahtuma');
 //var loginRouter = require('./routes/login');
 
 var app = express();
@@ -29,7 +29,7 @@ app.use('/tunnus', tunnusRouter);
 app.use('/asiakas', asiakasRouter);
 app.use('/kortinoikeus', kortinoikeusRouter);
 app.use('/tilioikeus', tilioikeusRouter);
-//app.use('/tilitapahtumat', tilitapahtumatRouter);
+app.use('/tilitapahtuma', tilitapahtumaRouter);
 //app.use('/login', loginRouter);
 
 /*function authenticateToken(req, res, next) {
