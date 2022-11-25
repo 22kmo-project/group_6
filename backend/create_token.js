@@ -1,4 +1,4 @@
-/*var crypto = require('crypto');
+var crypto = require('crypto');
 var co = require('co');
 
 function spawnTokenBuf() {
@@ -9,4 +9,4 @@ function spawnTokenBuf() {
 
 co(function* () {
     console.log((yield spawnTokenBuf()).toString('base64'));
-});*/
+});
