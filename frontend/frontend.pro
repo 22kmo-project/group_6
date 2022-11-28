@@ -13,16 +13,19 @@ SOURCES += \
     asiakaswindow.cpp \
     main.cpp \
     mainwindow.cpp \
-    myurl.cpp
+    myurl.cpp \
+    tietowindow.cpp
 
 HEADERS += \
     asiakaswindow.h \
     mainwindow.h \
-    myurl.h
+    myurl.h \
+    tietowindow.h
 
 FORMS += \
     asiakaswindow.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    tietowindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

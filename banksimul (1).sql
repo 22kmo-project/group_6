@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `asiakas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `asiakas` (
-  `id_user` int NOT NULL,
+  `id_asiakas` int NOT NULL AUTO_INCREMENT,
   `fname` varchar(45) DEFAULT NULL,
   `lname` varchar(45) DEFAULT NULL,
-  `address` varchar(45) DEFAULT NULL,
-  `phoneNumber` varchar(12) DEFAULT NULL,
-  PRIMARY KEY (`id_user`)
+  `address` varchar(255) DEFAULT NULL,
+  `phoneNumber` varchar(13) DEFAULT NULL,
+  PRIMARY KEY (`id_asiakas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -51,8 +51,10 @@ DROP TABLE IF EXISTS `kortinoikeus`;
 CREATE TABLE `kortinoikeus` (
   `id_oikeus` int NOT NULL,
   `id_tili` char(10) NOT NULL,
-  `id_card` int NOT NULL,
+  `id_card` bigint NOT NULL,
   PRIMARY KEY (`id_oikeus`),
+  UNIQUE KEY `id_card_UNIQUE` (`id_card`),
+  UNIQUE KEY `id_oikeus_UNIQUE` (`id_oikeus`),
   KEY `id_tili_idx` (`id_tili`),
   KEY `id_card_idx` (`id_card`),
   CONSTRAINT `id_card_ko` FOREIGN KEY (`id_card`) REFERENCES `tunnus` (`id_card`) ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -78,12 +80,9 @@ DROP TABLE IF EXISTS `tili`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tili` (
   `id_tili` char(10) NOT NULL,
-  `account_balance` int DEFAULT NULL,
-  `id_card` int NOT NULL,
+  `account_balance` float DEFAULT NULL,
   PRIMARY KEY (`id_tili`),
-  UNIQUE KEY `id_tili_UNIQUE` (`id_tili`),
-  KEY `id_card_idx` (`id_card`),
-  CONSTRAINT `id_card` FOREIGN KEY (`id_card`) REFERENCES `kortinoikeus` (`id_card`) ON DELETE RESTRICT ON UPDATE CASCADE
+  UNIQUE KEY `id_tili_UNIQUE` (`id_tili`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -106,12 +105,13 @@ DROP TABLE IF EXISTS `tilioikeus`;
 CREATE TABLE `tilioikeus` (
   `id_tilioikeus` int NOT NULL,
   `id_tili` char(10) NOT NULL,
-  `id_user` int NOT NULL,
+  `id_asiakas` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_tilioikeus`),
+  UNIQUE KEY `id_tilioikeus_UNIQUE` (`id_tilioikeus`),
   KEY `id_tili_idx` (`id_tili`),
-  KEY `id_user_idx` (`id_user`),
+  KEY `id_user_idx` (`id_asiakas`),
   CONSTRAINT `id_tili` FOREIGN KEY (`id_tili`) REFERENCES `tili` (`id_tili`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `asiakas` (`id_user`) ON DELETE RESTRICT ON UPDATE CASCADE
+  CONSTRAINT `id_user` FOREIGN KEY (`id_asiakas`) REFERENCES `asiakas` (`id_asiakas`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -125,34 +125,33 @@ LOCK TABLES `tilioikeus` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tilitapahtumat`
+-- Table structure for table `tilitapahtuma`
 --
 
-DROP TABLE IF EXISTS `tilitapahtumat`;
+DROP TABLE IF EXISTS `tilitapahtuma`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tilitapahtumat` (
+CREATE TABLE `tilitapahtuma` (
   `id_tapahtuma` int NOT NULL AUTO_INCREMENT,
   `id_tili` char(10) NOT NULL,
   `date` datetime DEFAULT NULL,
   `transaction` varchar(45) DEFAULT NULL,
-  `amount` int DEFAULT NULL,
-  `id_card` int NOT NULL,
+  `amount` float DEFAULT NULL,
+  `id_card` bigint NOT NULL,
   PRIMARY KEY (`id_tapahtuma`),
+  UNIQUE KEY `id_tapahtuma_UNIQUE` (`id_tapahtuma`),
   KEY `id_tili_idx` (`id_tili`),
-  KEY `id_card_idx` (`id_card`),
-  CONSTRAINT `id_card_tt` FOREIGN KEY (`id_card`) REFERENCES `tili` (`id_card`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `id_tili_tt` FOREIGN KEY (`id_tili`) REFERENCES `tili` (`id_tili`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tilitapahtumat`
+-- Dumping data for table `tilitapahtuma`
 --
 
-LOCK TABLES `tilitapahtumat` WRITE;
-/*!40000 ALTER TABLE `tilitapahtumat` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tilitapahtumat` ENABLE KEYS */;
+LOCK TABLES `tilitapahtuma` WRITE;
+/*!40000 ALTER TABLE `tilitapahtuma` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tilitapahtuma` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -163,8 +162,8 @@ DROP TABLE IF EXISTS `tunnus`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tunnus` (
-  `id_card` int NOT NULL,
-  `card_pin` int DEFAULT NULL,
+  `id_card` bigint NOT NULL,
+  `card_pin` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_card`),
   UNIQUE KEY `id_card_UNIQUE` (`id_card`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -188,4 +187,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-21 11:51:19
+-- Dump completed on 2022-11-24 11:55:39

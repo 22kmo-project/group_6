@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TietoWindow</class>
+ <widget class="QDialog" name="TietoWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPushButton" name="btnBack">
+   <property name="geometry">
+    <rect>
+     <x>296</x>
+     <y>510</y>
+     <width>211</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Takaisin</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnMuokkaa">
+   <property name="geometry">
+    <rect>
+     <x>336</x>
+     <y>350</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Muokkaa tietoja</string>
+   </property>
+   <property name="default">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>10</y>
+     <width>801</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Omat tiedot</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QTableView" name="tableView">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>100</y>
+     <width>256</width>
+     <height>192</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnLoad">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>310</y>
+     <width>101</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Lataa tiedot</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
