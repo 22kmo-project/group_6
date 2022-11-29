@@ -1,78 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>aloitus_valikko</class>
- <widget class="QDialog" name="aloitus_valikko">
+ <class>Aloitus_valikko</class>
+ <widget class="QDialog" name="Aloitus_valikko">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>427</width>
-    <height>306</height>
+    <width>843</width>
+    <height>639</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="pushButton_tapahtumat">
+  <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>320</x>
      <y>20</y>
-     <width>91</width>
-     <height>41</height>
+     <width>201</width>
+     <height>91</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
    </property>
    <property name="text">
-    <string> Tilitapahtumat</string>
+    <string>Tilitapahtumat</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_nosto">
+  <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>70</y>
-     <width>91</width>
-     <height>41</height>
+     <x>320</x>
+     <y>140</y>
+     <width>201</width>
+     <height>91</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Nosto</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_saldo">
+  <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>120</y>
-     <width>91</width>
-     <height>41</height>
+     <x>320</x>
+     <y>260</y>
+     <width>201</width>
+     <height>91</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Saldo</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_tiedot">
+  <widget class="QPushButton" name="pushButton_4">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>170</y>
-     <width>91</width>
-     <height>41</height>
+     <x>320</x>
+     <y>380</y>
+     <width>201</width>
+     <height>91</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Tiedot</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_kirjUlos">
+  <widget class="QPushButton" name="pushButton_5">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>220</y>
-     <width>91</width>
-     <height>41</height>
+     <x>320</x>
+     <y>500</y>
+     <width>201</width>
+     <height>91</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Kirjaudu ulos</string>

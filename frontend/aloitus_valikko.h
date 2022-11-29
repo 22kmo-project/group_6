@@ -4,19 +4,19 @@
 #include <QDialog>
 
 namespace Ui {
-class aloitus_valikko;
+class Aloitus_valikko;
 }
 
-class aloitus_valikko : public QDialog
+class Aloitus_valikko : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit aloitus_valikko(QWidget *parent = nullptr);
-    ~aloitus_valikko();
+    explicit Aloitus_valikko(QWidget *parent = nullptr);
+    ~Aloitus_valikko();
 
 private:
-    Ui::aloitus_valikko *ui;
+    Ui::Aloitus_valikko *ui;
 };
 
 #endif // ALOITUS_VALIKKO_H

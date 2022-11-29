@@ -28,14 +28,14 @@
     </font>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btnTapahtumat">
    <property name="geometry">
     <rect>
-     <x>255</x>
-     <y>63</y>
+     <x>260</x>
+     <y>60</y>
      <width>251</width>
      <height>90</height>
     </rect>
@@ -59,8 +59,8 @@
   <widget class="QPushButton" name="btnNosto">
    <property name="geometry">
     <rect>
-     <x>255</x>
-     <y>171</y>
+     <x>260</x>
+     <y>170</y>
      <width>251</width>
      <height>90</height>
     </rect>
@@ -84,8 +84,8 @@
   <widget class="QPushButton" name="btnSaldo">
    <property name="geometry">
     <rect>
-     <x>255</x>
-     <y>279</y>
+     <x>260</x>
+     <y>280</y>
      <width>251</width>
      <height>90</height>
     </rect>
@@ -109,8 +109,8 @@
   <widget class="QPushButton" name="btnTiedot">
    <property name="geometry">
     <rect>
-     <x>255</x>
-     <y>387</y>
+     <x>260</x>
+     <y>390</y>
      <width>251</width>
      <height>90</height>
     </rect>
@@ -134,8 +134,8 @@
   <widget class="QPushButton" name="btnLogout">
    <property name="geometry">
     <rect>
-     <x>255</x>
-     <y>495</y>
+     <x>260</x>
+     <y>500</y>
      <width>251</width>
      <height>90</height>
     </rect>

@@ -1,6 +1,8 @@
 #include "asiakaswindow.h"
 #include "qdebug.h"
 #include "ui_asiakaswindow.h"
+#include "tilitapahtumat.h"
+#include "nosto.h"
 
 AsiakasWindow::AsiakasWindow(QString id_card,QWidget *parent) :
     QDialog(parent),
@@ -31,5 +33,28 @@ void AsiakasWindow::on_btnTiedot_clicked()
 {
     QString wb=this->getWebToken();
     qDebug()<<"webtoken="+wb;
+
 }
+
+
+void AsiakasWindow::on_btnTapahtumat_clicked()
+{
+    Tilitapahtumat tilitapahtumat;
+    tilitapahtumat.setModal(true);
+    tilitapahtumat.exec();
+}
+
+void AsiakasWindow::on_btnNosto_clicked()
+{
+    Nosto nosto;
+    nosto.setModal(true);
+    nosto.exec();
+}
+
+
+void AsiakasWindow::on_btnLogout_clicked()
+{
+    this->close();
+}
+
 

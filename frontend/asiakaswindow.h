@@ -21,6 +21,12 @@ public:
 private slots:
     void on_btnTiedot_clicked();
 
+    void on_btnTapahtumat_clicked();
+
+    void on_btnLogout_clicked();
+
+    void on_btnNosto_clicked();
+
 private:
     Ui::AsiakasWindow *ui;
     QString webToken;
