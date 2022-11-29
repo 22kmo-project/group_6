@@ -28,10 +28,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     AsiakasWindow *objectAsiakasWindow;
+    QString id_card;
     QNetworkAccessManager *loginManager;
     QNetworkReply *reply;
     QByteArray response_data;
-    QString id_card;
-
 };
 #endif // MAINWINDOW_H

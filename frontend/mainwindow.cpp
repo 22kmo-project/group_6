@@ -59,10 +59,12 @@ void MainWindow::loginSlot(QNetworkReply *reply)
             }
             else {
                 objectAsiakasWindow=new AsiakasWindow(id_card);
-                objectAsiakasWindow->setWebToken(response_data);
+                objectAsiakasWindow->setWebToken("Bearer "+response_data);
                 objectAsiakasWindow->show();
             }
         }
     }
+    reply->deleteLater();
+    loginManager->deleteLater();
 }
 

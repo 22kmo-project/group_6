@@ -1,7 +1,12 @@
 #ifndef ASIAKASWINDOW_H
 #define ASIAKASWINDOW_H
 
+#include "tietowindow.h"
 #include <QDialog>
+#include <QNetworkAccessManager>
+#include <QJsonDocument>
+#include <QMainWindow>
+
 
 namespace Ui {
 class AsiakasWindow;
@@ -16,14 +21,19 @@ public:
     ~AsiakasWindow();
 
     const QString &getWebToken() const;
-    void setWebToken(const QString &newWebToken);
+    void setWebToken(const QByteArray &newWebToken);
 
 private slots:
     void on_btnTiedot_clicked();
 
 private:
     Ui::AsiakasWindow *ui;
-    QString webToken;
+    QByteArray webToken;
+    QString myId_card;
+    QNetworkAccessManager *loginManager;
+    QNetworkReply *reply;
+    QByteArray response_data;
+    TietoWindow *ObjectTietoWindow;
 };
 
 #endif // ASIAKASWINDOW_H

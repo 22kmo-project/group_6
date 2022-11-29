@@ -128,7 +128,7 @@
     </size>
    </property>
    <property name="text">
-    <string>Näytä Tiedot</string>
+    <string>Näytä tiedot</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btnLogout">
