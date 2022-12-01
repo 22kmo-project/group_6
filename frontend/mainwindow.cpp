@@ -62,7 +62,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
                 ui->labelInfo->setText("Käyttäjätunnus tai salasana ei täsmää");
             }
             else {
-                objectAsiakasWindow=new AsiakasWindow(id_card);
+                objectAsiakasWindow = new AsiakasWindow(id_card);
                 objectAsiakasWindow->setWebToken(response_data);
                 objectAsiakasWindow->show();
             }

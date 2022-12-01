@@ -15,6 +15,8 @@ SOURCES += \
     mainwindow.cpp \
     myurl.cpp \
     nosto.cpp \
+    saldo.cpp \
+    tiedot.cpp \
     tilitapahtumat.cpp
 
 HEADERS += \
@@ -22,12 +24,16 @@ HEADERS += \
     mainwindow.h \
     myurl.h \
     nosto.h \
+    saldo.h \
+    tiedot.h \
     tilitapahtumat.h
 
 FORMS += \
     asiakaswindow.ui \
     mainwindow.ui \
     nosto.ui \
+    saldo.ui \
+    tiedot.ui \
     tilitapahtumat.ui
 
 # Default rules for deployment.

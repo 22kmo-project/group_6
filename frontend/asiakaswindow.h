@@ -27,6 +27,8 @@ private slots:
 
     void on_btnNosto_clicked();
 
+    void on_btnSaldo_clicked();
+
 private:
     Ui::AsiakasWindow *ui;
     QString webToken;
