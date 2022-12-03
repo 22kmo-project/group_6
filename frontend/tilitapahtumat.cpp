@@ -25,9 +25,9 @@ void Tilitapahtumat::setWebToken(const QByteArray &newWebToken)
 
 void Tilitapahtumat::getTilitapahtumaSlot (QNetworkReply *reply)
 {
-    response_data=reply->readAll();
-    qDebug()<<"DATA : "+response_data;
-    qDebug()<<"WEBTOKEN : "+webToken;
+    //response_data=reply->readAll();
+   // qDebug()<<"DATA : "+response_data;
+    //qDebug()<<"WEBTOKEN : "+webToken;
 
 
     QByteArray response_data=reply->readAll();
