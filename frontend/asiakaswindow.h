@@ -2,6 +2,10 @@
 #define ASIAKASWINDOW_H
 
 #include <QDialog>
+#include <QNetworkAccessManager>
+#include <QJsonDocument>
+#include <QMainWindow>
+#include "tilitapahtumat.h"
 
 namespace Ui {
 class AsiakasWindow;
@@ -16,7 +20,7 @@ public:
     ~AsiakasWindow();
 
     const QString &getWebToken() const;
-    void setWebToken(const QString &newWebToken);
+    void setWebToken(const QByteArray &newWebToken);
 
 private slots:
     void on_btnTiedot_clicked();
@@ -31,7 +35,12 @@ private slots:
 
 private:
     Ui::AsiakasWindow *ui;
-    QString webToken;
+    QByteArray webToken;
+    QString myId_card;
+    QNetworkAccessManager *loginManager;
+    QNetworkReply *reply;
+    QByteArray response_data;
+    Tilitapahtumat *ObjectTilitapahtuma;
 };
 
 #endif // ASIAKASWINDOW_H

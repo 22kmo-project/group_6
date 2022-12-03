@@ -19,14 +19,12 @@ AsiakasWindow::AsiakasWindow(QString id_card,QWidget *parent) :
 AsiakasWindow::~AsiakasWindow()
 {
     delete ui;
+    delete ObjectTilitapahtuma;
+    ObjectTilitapahtuma=nullptr;
 }
 
-const QString &AsiakasWindow::getWebToken() const
-{
-    return webToken;
-}
 
-void AsiakasWindow::setWebToken(const QString &newWebToken)
+void AsiakasWindow::setWebToken(const QByteArray &newWebToken)
 {
     webToken = newWebToken;
 }
@@ -36,9 +34,9 @@ void AsiakasWindow::setWebToken(const QString &newWebToken)
 
 void AsiakasWindow::on_btnTapahtumat_clicked()
 {
-    Tilitapahtumat tilitapahtumat;
-    tilitapahtumat.setModal(true);
-    tilitapahtumat.exec();
+    ObjectTilitapahtuma = new Tilitapahtumat;
+    ObjectTilitapahtuma -> setWebToken(webToken);
+    ObjectTilitapahtuma -> show();
 }
 
 void AsiakasWindow::on_btnNosto_clicked()
@@ -58,8 +56,9 @@ void AsiakasWindow::on_btnSaldo_clicked()
 
 void AsiakasWindow::on_btnTiedot_clicked()
 {
-    QString wb=this->getWebToken();
-    qDebug()<<"webtoken = "+wb;
+    //QString wb=this->getWebToken();
+    //qDebug()<<"webtoken = "+wb;
+
     Tiedot tietoikkuna;
     tietoikkuna.setModal(true);
     tietoikkuna.exec();
