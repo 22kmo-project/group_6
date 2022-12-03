@@ -32,7 +32,7 @@ private slots:
 private:
     Ui::Tilitapahtumat *ui;
     QByteArray webToken;
-    QNetworkAccessManager *getManager;
+    QNetworkAccessManager *tilitapahtumaManager;
 
     QNetworkReply *reply;
     QByteArray response_data;

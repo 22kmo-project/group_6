@@ -11,21 +11,6 @@ Tilitapahtumat::Tilitapahtumat(QWidget *parent) :
     ui->setupUi(this);
     qDebug()<<"Tilitapahtumat konstuktrori ";
 
-   /* QString site_url = MyUrl::getBaseUrl() + "/tilitapahtuma";
-    QNetworkRequest request((site_url));
-
-
-    //WEBTOKEN ALKU
-    request.setRawHeader(QByteArray("Authorization"),(webToken));
-    //WEBTOKEN LOPPU
-
-    getManager = new QNetworkAccessManager(this);
-
-    connect(getManager, SIGNAL(finished (QNetworkReply*)),this, SLOT(getTilitapahtumaSlot(QNetworkReply*)));
-
-    reply = getManager->get(request);*/
-
-
 }
 
 Tilitapahtumat::~Tilitapahtumat()
@@ -43,28 +28,31 @@ void Tilitapahtumat::getTilitapahtumaSlot (QNetworkReply *reply)
     response_data=reply->readAll();
     qDebug()<<"DATA : "+response_data;
     qDebug()<<"WEBTOKEN : "+webToken;
+
+
     QByteArray response_data=reply->readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     QJsonArray json_array = json_doc.array();
-    QString tilitapahtuma;
+    QString tilitapahtumaInfo;
+
 
     foreach (const QJsonValue &value, json_array) {
        QJsonObject json_obj = value.toObject();
-       tilitapahtuma+=QString::number(json_obj["id_tapahtuma"].toInt())+
+       tilitapahtumaInfo+=QString::number(json_obj["id_tapahtuma"].toInt())+
                    ", "+json_obj["id_tili"].toString()+
                    ", "+json_obj["date"].toString()+
                    ", "+json_obj["transaction"].toString()+
                    ", "+json_obj["amount"].toString()+
-                   ", "+json_obj["id_card"].toString();
+                   ", "+json_obj["id_card"].toString()+"\r";
 
-    qDebug()<< tilitapahtuma;
-    ui->textEdit_2->setText(response_data);
+
     }
+    qDebug()<< "QString Data: " + tilitapahtumaInfo;
 
-
+    ui->textEdit_2->setText(tilitapahtumaInfo);
 
  reply->deleteLater();
- getManager->deleteLater();
+ tilitapahtumaManager->deleteLater();
 }
 
 
@@ -82,16 +70,15 @@ void Tilitapahtumat::on_btn_getTilitapahtuma_clicked()
 
 
     //WEBTOKEN ALKU
-
     QByteArray myToken="Bearer "+webToken;
     request.setRawHeader(QByteArray("Authorization"),(myToken));
     //WEBTOKEN LOPPU
 
-    getManager = new QNetworkAccessManager(this);
+    tilitapahtumaManager = new QNetworkAccessManager(this);
 
-    connect(getManager, SIGNAL(finished (QNetworkReply*)),this, SLOT(getTilitapahtumaSlot(QNetworkReply*)));
+    connect(tilitapahtumaManager, SIGNAL(finished (QNetworkReply*)),this, SLOT(getTilitapahtumaSlot(QNetworkReply*)));
 
-    reply = getManager->get(request);
+    reply = tilitapahtumaManager->get(request);
 
 
 }
