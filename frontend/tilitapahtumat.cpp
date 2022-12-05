@@ -22,6 +22,10 @@ void Tilitapahtumat::setWebToken(const QByteArray &newWebToken)
 {
     webToken = newWebToken;
 }
+void Tilitapahtumat::setId_card(const QString &newId_card)
+{
+    id_card = newId_card;
+}
 
 void Tilitapahtumat::getTilitapahtumaSlot (QNetworkReply *reply)
 {
@@ -42,7 +46,7 @@ void Tilitapahtumat::getTilitapahtumaSlot (QNetworkReply *reply)
                    ", "+json_obj["id_tili"].toString()+
                    ", "+json_obj["date"].toString()+
                    ", "+json_obj["transaction"].toString()+
-                   ", "+json_obj["amount"].toString()+
+                   ", "+json_obj["amount"].toDouble()+
                    ", "+json_obj["id_card"].toString()+"\r";
 
 
@@ -56,16 +60,14 @@ void Tilitapahtumat::getTilitapahtumaSlot (QNetworkReply *reply)
 }
 
 
-void Tilitapahtumat::on_btn_takaisin_clicked()
-{
-    close();
-}
+
 
 
 void Tilitapahtumat::on_btn_getTilitapahtuma_clicked()
 {
 
-    QString site_url = MyUrl::getBaseUrl() + "/tilitapahtuma";
+    qDebug()<<"Kortti id: "+ id_card;
+    QString site_url = MyUrl::getBaseUrl() + "/selaa_tilitapahtuma/"+id_card;
     QNetworkRequest request((site_url));
 
 
@@ -83,3 +85,7 @@ void Tilitapahtumat::on_btn_getTilitapahtuma_clicked()
 
 }
 
+void Tilitapahtumat::on_btn_takaisin_clicked()
+    {
+        close();
+    }

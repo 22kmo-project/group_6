@@ -6,7 +6,7 @@
 #include <QJsonDocument>
 #include <QMainWindow>
 #include "tilitapahtumat.h"
-
+#include "qdebug.h"
 namespace Ui {
 class AsiakasWindow;
 }
@@ -19,8 +19,10 @@ public:
     explicit AsiakasWindow(QString id_card,QWidget *parent = nullptr);
     ~AsiakasWindow();
 
-    const QString &getWebToken() const;
+
     void setWebToken(const QByteArray &newWebToken);
+signals:
+
 
 private slots:
     void on_btnTiedot_clicked();
@@ -36,11 +38,12 @@ private slots:
 private:
     Ui::AsiakasWindow *ui;
     QByteArray webToken;
-    QString myId_card;
+    QString newId_card;
     QNetworkAccessManager *loginManager;
     QNetworkReply *reply;
     QByteArray response_data;
     Tilitapahtumat *ObjectTilitapahtuma;
+
 };
 
 #endif // ASIAKASWINDOW_H

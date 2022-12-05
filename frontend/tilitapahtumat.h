@@ -19,8 +19,9 @@ public:
     explicit Tilitapahtumat(QWidget *parent = nullptr);
     ~Tilitapahtumat();
 
-    const QString &getWebToken() const;
+
     void setWebToken(const QByteArray &newWebToken);
+    void setId_card(const QString &NewId_card);
 
 private slots:
     void getTilitapahtumaSlot (QNetworkReply *reply);
@@ -33,10 +34,12 @@ private:
     Ui::Tilitapahtumat *ui;
     QByteArray webToken;
     QNetworkAccessManager *tilitapahtumaManager;
+    QString id_card;
 
     QNetworkReply *reply;
     QByteArray response_data;
     QStandardItemModel *model;
+
 };
 
 #endif // TILITAPAHTUMAT_H

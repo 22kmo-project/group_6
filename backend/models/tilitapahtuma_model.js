@@ -7,7 +7,7 @@ const tilitapahtuma = {
     getById: function (id, callback) {
         return db.query('select * from tilitapahtuma where id_tapahtuma=?', [id], callback);
     },
-
+    
     getAll: function (callback) {
         return db.query('select * from tilitapahtuma', callback);
     },
@@ -30,10 +30,10 @@ const tilitapahtuma = {
                 callback);
    
     },
+    
     getByIdCard: function (id, callback) {
         return db.query('select * from tilitapahtuma where tilitapahtuma.id_card=?', [id], callback);
     },
-   
   
 };
 module.exports = tilitapahtuma;

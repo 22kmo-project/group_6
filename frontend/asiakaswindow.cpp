@@ -1,5 +1,5 @@
 #include "asiakaswindow.h"
-#include "qdebug.h"
+
 #include "ui_asiakaswindow.h"
 #include "tilitapahtumat.h"
 #include "nosto.h"
@@ -12,6 +12,8 @@ AsiakasWindow::AsiakasWindow(QString id_card,QWidget *parent) :
 {
     ui->setupUi(this);
     ui->labelIduser->setText(id_card);
+    newId_card = id_card;
+    qDebug()<<id_card;
 }
 
 
@@ -31,11 +33,11 @@ void AsiakasWindow::setWebToken(const QByteArray &newWebToken)
 
 
 
-
 void AsiakasWindow::on_btnTapahtumat_clicked()
 {
     ObjectTilitapahtuma = new Tilitapahtumat;
     ObjectTilitapahtuma -> setWebToken(webToken);
+    ObjectTilitapahtuma -> setId_card(newId_card);
     ObjectTilitapahtuma -> show();
 }
 
@@ -56,8 +58,6 @@ void AsiakasWindow::on_btnSaldo_clicked()
 
 void AsiakasWindow::on_btnTiedot_clicked()
 {
-    //QString wb=this->getWebToken();
-    //qDebug()<<"webtoken = "+wb;
 
     Tiedot tietoikkuna;
     tietoikkuna.setModal(true);
