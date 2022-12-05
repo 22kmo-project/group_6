@@ -3,11 +3,12 @@
 #include "tietowindow.h"
 #include "ui_tietowindow.h"
 
-TietoWindow::TietoWindow(QWidget *parent) :
+TietoWindow::TietoWindow(QString id_card, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TietoWindow)
 {
     ui->setupUi(this);
+    myId_card=id_card;
 }
 
 TietoWindow::~TietoWindow()
@@ -20,18 +21,16 @@ void TietoWindow::setWebToken(const QByteArray &newWebToken)
     webToken = newWebToken;
 }
 
-
 void TietoWindow::on_btnLoad_clicked()
 {
-
-    QString site_url=MyUrl::getBaseUrl()+"/asiakastiedot"; // asiakastiedot jälkeen vielä +my_jotain kunhan tietokannan kautta saadaan toimimaan yhteydet
+    QString site_url=MyUrl::getBaseUrl()+"/asiakastiedot/"+myId_card;
     QNetworkRequest request((site_url));
     //WEBTOKEN ALKU
     request.setRawHeader(QByteArray("Authorization"),(webToken));
     //WEBTOKEN LOPPU
     infoManager = new QNetworkAccessManager(this);
 
-    connect(infoManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(infoSlot(QNetworkReply*)));
+    connect(infoManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(infoSlot(QNetworkReply*)));
 
     reply = infoManager->get(request);
 }
@@ -51,9 +50,8 @@ void TietoWindow::infoSlot(QNetworkReply *reply)
                   ("Sukunimi: "+json_obj["lname"].toString())+"\n"+
                   ("Osoite: "+json_obj["address"].toString())+"\n"+
                   ("Puhelinnumero: "+json_obj["phoneNumber"].toString())+"\r\n";
-        }
 
-        qDebug()<<info;
+        }
 
         ui->textInfo->setText(info);
 

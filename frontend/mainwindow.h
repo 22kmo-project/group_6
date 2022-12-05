@@ -20,6 +20,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    QString id_card;
 
 private slots:
     void on_btnLogin_clicked();
@@ -28,7 +29,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     AsiakasWindow *objectAsiakasWindow;
-    QString id_card;
     QNetworkAccessManager *loginManager;
     QNetworkReply *reply;
     QByteArray response_data;

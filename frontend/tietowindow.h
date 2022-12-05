@@ -17,9 +17,8 @@ class TietoWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit TietoWindow(QWidget *parent = nullptr);
+    explicit TietoWindow(QString id_card, QWidget *parent = nullptr);
     ~TietoWindow();
-
     const QString &getWebToken() const;
     void setWebToken(const QByteArray &newWebToken);
 
@@ -31,10 +30,10 @@ private slots:
 private:
     Ui::TietoWindow *ui;
     QByteArray webToken;
-    QString myId_card;
     QNetworkAccessManager *infoManager;
     QNetworkReply *reply;
     QByteArray response_data;
+    QString myId_card;
 
 };
 

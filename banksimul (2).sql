@@ -164,8 +164,11 @@ DROP TABLE IF EXISTS `tunnus`;
 CREATE TABLE `tunnus` (
   `id_card` char(10) NOT NULL,
   `card_pin` varchar(255) DEFAULT NULL,
+  `id_asiakas` int NOT NULL,
   PRIMARY KEY (`id_card`),
-  UNIQUE KEY `id_card_UNIQUE` (`id_card`)
+  UNIQUE KEY `id_card_UNIQUE` (`id_card`),
+  KEY `id_asiakas_idx` (`id_asiakas`),
+  CONSTRAINT `id_asiakas_tunnus` FOREIGN KEY (`id_asiakas`) REFERENCES `asiakas` (`id_asiakas`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -187,4 +190,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-03 11:45:50
+-- Dump completed on 2022-12-05 14:19:13

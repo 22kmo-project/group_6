@@ -25,8 +25,9 @@ void AsiakasWindow::setWebToken(const QByteArray &newWebToken)
 
 void AsiakasWindow::on_btnTiedot_clicked()
 {
-    ObjectTietoWindow=new TietoWindow();
+    ObjectTietoWindow=new TietoWindow(myId_card);
     ObjectTietoWindow->setWebToken(webToken);
     ObjectTietoWindow->show();
+
 }
 

@@ -2,6 +2,7 @@
 #define ASIAKASWINDOW_H
 
 #include "tietowindow.h"
+
 #include <QDialog>
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
@@ -29,11 +30,11 @@ private slots:
 private:
     Ui::AsiakasWindow *ui;
     QByteArray webToken;
-    QString myId_card;
     QNetworkAccessManager *loginManager;
     QNetworkReply *reply;
     QByteArray response_data;
     TietoWindow *ObjectTietoWindow;
+    QString myId_card;
 };
 
 #endif // ASIAKASWINDOW_H
