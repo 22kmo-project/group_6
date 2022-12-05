@@ -61,4 +61,14 @@ function(request, response) {
   });
 });
 
+router.get('/:id?',
+    function (request, response) {
+        tilitapahtuma.getByIdCard(request.params.id, function (err, dbResult) {
+            if (err) {
+                response.json(err);
+            } else {
+                response.json(dbResult);
+            }
+        })
+    });
 module.exports = router;
