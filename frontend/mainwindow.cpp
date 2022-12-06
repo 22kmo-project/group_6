@@ -2,6 +2,7 @@
 #include "myurl.h"
 #include "ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -45,15 +46,18 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     int test=QString::compare(response_data,"false");
     qDebug()<<test;
 
-    if(response_data.length()==0){
+    if(response_data.length()==0)
+    {
         ui->labelInfo->setText("Palvelin ei vastaa");
     }
     else{
-        if(QString::compare(response_data,"-4078")==0){
+        if(QString::compare(response_data,"-4078")==0)
+        {
             ui->labelInfo->setText("Virhe tietokantayhteydessä");
         }
         else{
-            if(test==0){
+            if(test==0)
+            {
                 ui->textIdUser->clear();
                 ui->textcard_pin->clear();
                 ui->labelInfo->setText("Käyttäjätunnus tai salasana ei täsmää");
@@ -67,5 +71,11 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     }
     reply->deleteLater();
     loginManager->deleteLater();
+}
+
+
+void MainWindow::on_btnQuit_clicked()
+{
+    QCoreApplication::quit();
 }
 

@@ -13,8 +13,8 @@ const tunnus = {
     add: function (add_data, callback) {
         bcrypt.hash(add_data.card_pin, saltRounds, function(err, hashedPin) {
         return db.query(
-            'insert into tunnus (id_card,id_asiakas,card_pin) values(?,?,?)',
-            [add_data.id_card,add_data.id_asiakas, hashedPin],
+            'insert into tunnus (id_asiakas,id_card,card_pin) values(?,?,?)',
+            [add_data.id_asiakas,add_data.id_card, hashedPin],
             callback);
         });
     },

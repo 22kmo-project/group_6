@@ -26,6 +26,8 @@ private slots:
     void on_btnLogin_clicked();
     void loginSlot (QNetworkReply *reply);
 
+    void on_btnQuit_clicked();
+
 private:
     Ui::MainWindow *ui;
     AsiakasWindow *objectAsiakasWindow;

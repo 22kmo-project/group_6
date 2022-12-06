@@ -2,11 +2,14 @@
 #define ASIAKASWINDOW_H
 
 #include "tietowindow.h"
+#include "tilitapahtumat.h"
+#include "qdebug.h"
 
 #include <QDialog>
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 #include <QMainWindow>
+
 
 
 namespace Ui {
@@ -22,16 +25,23 @@ public:
     ~AsiakasWindow();
 
 private slots:
-    void on_btnTiedot_clicked();
+
+
+    void on_btnTapahtumat_clicked();
+
+    void on_btnLogout_clicked();
+
 
 private:
     Ui::AsiakasWindow *ui;
     QByteArray webToken;
+    TietoWindow *ObjectTietoWindow;
+    QString myId_card;
     QNetworkAccessManager *loginManager;
     QNetworkReply *reply;
     QByteArray response_data;
-    TietoWindow *ObjectTietoWindow;
-    QString myId_card;
+    Tilitapahtumat *ObjectTilitapahtuma;
+
 };
 
 #endif // ASIAKASWINDOW_H
