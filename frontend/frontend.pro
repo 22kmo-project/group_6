@@ -14,17 +14,23 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     myurl.cpp \
+    nosto.cpp \
+    secsum.cpp \
     tilitapahtumat.cpp
 
 HEADERS += \
     asiakaswindow.h \
     mainwindow.h \
     myurl.h \
+    nosto.h \
+    secsum.h \
     tilitapahtumat.h
 
 FORMS += \
     asiakaswindow.ui \
     mainwindow.ui \
+    nosto.ui \
+    secsum.ui \
     tilitapahtumat.ui
 
 # Default rules for deployment.

@@ -1,26 +1,27 @@
 #ifndef NOSTO_H
 #define NOSTO_H
 
-#include <QDialog>
+#include <QWidget>
 
 namespace Ui {
-class Nosto;
+class nosto;
 }
 
-class Nosto : public QDialog
+class nosto : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Nosto(QWidget *parent = nullptr);
-    ~Nosto();
+    explicit nosto(QWidget *parent = nullptr);
+    ~nosto();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_btnconfirm_clicked();
+
+    void on_btnsum_clicked();
 
 private:
-    Ui::Nosto *ui;
-
+    Ui::nosto *ui;
 };
 
 #endif // NOSTO_H
