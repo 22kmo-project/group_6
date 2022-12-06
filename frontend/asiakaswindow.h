@@ -1,12 +1,17 @@
 #ifndef ASIAKASWINDOW_H
 #define ASIAKASWINDOW_H
 
+#include "tietowindow.h"
+#include "tilitapahtumat.h"
+#include "qdebug.h"
+
 #include <QDialog>
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 #include <QMainWindow>
-#include "tilitapahtumat.h"
-#include "qdebug.h"
+
+
+
 namespace Ui {
 class AsiakasWindow;
 }
@@ -30,6 +35,7 @@ private slots:
 private:
     Ui::AsiakasWindow *ui;
     QByteArray webToken;
+    TietoWindow *ObjectTietoWindow;
     QString myId_card;
     QNetworkAccessManager *loginManager;
     QNetworkReply *reply;

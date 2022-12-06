@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "myurl.h"
 #include "ui_mainwindow.h"
 
 
@@ -62,12 +63,14 @@ void MainWindow::loginSlot(QNetworkReply *reply)
                 ui->labelInfo->setText("Käyttäjätunnus tai salasana ei täsmää");
             }
             else {
-                token = response_data;
-                objectAsiakasWindow = new AsiakasWindow(id_card, token);
+                token = "Bearer "+response_data;
+                objectAsiakasWindow=new AsiakasWindow(id_card, token);
                 objectAsiakasWindow->show();
             }
         }
     }
+    reply->deleteLater();
+    loginManager->deleteLater();
 }
 
 

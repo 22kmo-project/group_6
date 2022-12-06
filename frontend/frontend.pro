@@ -14,18 +14,23 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     myurl.cpp \
+    tietowindow.cpp \
     tilitapahtumat.cpp
 
 HEADERS += \
     asiakaswindow.h \
     mainwindow.h \
     myurl.h \
+    tietowindow.h \
     tilitapahtumat.h
+
 
 FORMS += \
     asiakaswindow.ui \
     mainwindow.ui \
+    tietowindow.ui \
     tilitapahtumat.ui
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

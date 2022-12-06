@@ -1,6 +1,6 @@
 #include "asiakaswindow.h"
-
 #include "ui_asiakaswindow.h"
+#include "tietowindow.h"
 #include "tilitapahtumat.h"
 #include "nosto.h"
 #include "saldo.h"
@@ -17,8 +17,6 @@ AsiakasWindow::AsiakasWindow(QString id_card, QByteArray token, QWidget *parent)
     qDebug()<<id_card;
 }
 
-
-
 AsiakasWindow::~AsiakasWindow()
 {
     delete ui;
@@ -33,6 +31,11 @@ void AsiakasWindow::on_btnTapahtumat_clicked()
     ObjectTilitapahtuma -> show();
 }
 
+void AsiakasWindow::on_btnTiedot_clicked()
+{
+    ObjectTietoWindow=new TietoWindow(myId_card, webToken);
+    ObjectTietoWindow->show();
+}
 
 void AsiakasWindow::on_btnLogout_clicked()
 {
