@@ -18,11 +18,8 @@ class AsiakasWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit AsiakasWindow(QString id_card,QWidget *parent = nullptr);
+    explicit AsiakasWindow(QString id_card, QByteArray token, QWidget *parent = nullptr);
     ~AsiakasWindow();
-
-    const QString &getWebToken() const;
-    void setWebToken(const QByteArray &newWebToken);
 
 private slots:
     void on_btnTiedot_clicked();
