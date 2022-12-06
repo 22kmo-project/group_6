@@ -25,6 +25,7 @@ public:
 private slots:
     void on_btnLoad_clicked();
     void infoSlot (QNetworkReply *reply);
+    void tiliSlot (QNetworkReply *reply);
 
     void on_btnBack_clicked();
 private:
@@ -34,7 +35,7 @@ private:
     QNetworkReply *reply;
     QByteArray response_data;
     QString myId_card;
-
+    QNetworkAccessManager *tiliManager;
 };
 
 #endif // TIETOWINDOW_H

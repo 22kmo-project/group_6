@@ -13,6 +13,7 @@ TietoWindow::TietoWindow(QByteArray webToken, QString id_card, QWidget *parent) 
 
     QString site_url=MyUrl::getBaseUrl()+"/asiakastiedot/"+myId_card;
     QNetworkRequest request((site_url));
+    qDebug()<<site_url;
     //WEBTOKEN ALKU
     request.setRawHeader(QByteArray("Authorization"),(webToken));
     //WEBTOKEN LOPPU
@@ -21,6 +22,7 @@ TietoWindow::TietoWindow(QByteArray webToken, QString id_card, QWidget *parent) 
     connect(infoManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(infoSlot(QNetworkReply*)));
 
     reply = infoManager->get(request);
+
 }
 
 TietoWindow::~TietoWindow()
@@ -40,10 +42,10 @@ void TietoWindow::on_btnLoad_clicked()
 
 void TietoWindow::infoSlot(QNetworkReply *reply)
 {
-        //response_data=reply->readAll();
-        //qDebug()<<response_data;
+
 
         QByteArray response_data=reply->readAll();
+        //qDebug()<<response_data;
         QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
         QJsonArray json_array = json_doc.array();
         QString info="";
@@ -53,13 +55,41 @@ void TietoWindow::infoSlot(QNetworkReply *reply)
                   ("Sukunimi: "+json_obj["lname"].toString())+"\n"+
                   ("Osoite: "+json_obj["address"].toString())+"\n"+
                   ("Puhelinnumero: "+json_obj["phoneNumber"].toString())+"\r\n";
+        ui->textInfo->setText(info);
+
+        QString site_url=MyUrl::getBaseUrl()+"/tilitiedot/"+myId_card;
+        QNetworkRequest request((site_url));
+        qDebug()<<site_url;
+        //WEBTOKEN ALKU
+        request.setRawHeader(QByteArray("Authorization"),(webToken));
+        //WEBTOKEN LOPPU
+        tiliManager = new QNetworkAccessManager(this);
+        connect(tiliManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(tiliSlot(QNetworkReply*)));
+        reply = tiliManager->get(request);
 
         }
 
-        ui->textInfo->setText(info);
-
-        reply->deleteLater();
         infoManager->deleteLater();
+}
+
+void TietoWindow::tiliSlot(QNetworkReply *reply)
+{
+
+     QByteArray response_data=reply->readAll();
+     qDebug()<<response_data;
+     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+     QJsonArray json_array = json_doc.array();
+     QString tili="";
+     foreach (const QJsonValue &value, json_array) {
+         QJsonObject json_obj = value.toObject();
+         tili+=("Tilin id: "+json_obj["id_tili"].toString())+"\n"+
+         "Tilin saldo: "+QString::number(json_obj["account_balance"].toInt())+"€\r\n";
+
+     }
+     ui->textTilit->setText(tili);
+
+     reply->deleteLater();
+     tiliManager->deleteLater();
 }
 
 

@@ -35,6 +35,6 @@ const asiakas = {
     getUserInfo: function(id,callback){
         return db.query('select fname, lname, address, phoneNumber from asiakas inner join tunnus on asiakas.id_asiakas=tunnus.id_asiakas where tunnus.id_card=?',[id],callback);
     }
-  
+    
 };
 module.exports = asiakas;
