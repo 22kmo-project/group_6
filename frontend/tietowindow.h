@@ -17,7 +17,7 @@ class TietoWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit TietoWindow(QString id_card, QWidget *parent = nullptr);
+    explicit TietoWindow(QByteArray webToken, QString id_card, QWidget *parent = nullptr);
     ~TietoWindow();
     const QString &getWebToken() const;
     void setWebToken(const QByteArray &newWebToken);

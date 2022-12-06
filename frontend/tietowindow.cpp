@@ -3,12 +3,24 @@
 #include "tietowindow.h"
 #include "ui_tietowindow.h"
 
-TietoWindow::TietoWindow(QString id_card, QWidget *parent) :
+TietoWindow::TietoWindow(QByteArray webToken, QString id_card, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TietoWindow)
 {
     ui->setupUi(this);
     myId_card=id_card;
+    ui->btnLoad->hide();
+
+    QString site_url=MyUrl::getBaseUrl()+"/asiakastiedot/"+myId_card;
+    QNetworkRequest request((site_url));
+    //WEBTOKEN ALKU
+    request.setRawHeader(QByteArray("Authorization"),(webToken));
+    //WEBTOKEN LOPPU
+    infoManager = new QNetworkAccessManager(this);
+
+    connect(infoManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(infoSlot(QNetworkReply*)));
+
+    reply = infoManager->get(request);
 }
 
 TietoWindow::~TietoWindow()
@@ -23,16 +35,7 @@ void TietoWindow::setWebToken(const QByteArray &newWebToken)
 
 void TietoWindow::on_btnLoad_clicked()
 {
-    QString site_url=MyUrl::getBaseUrl()+"/asiakastiedot/"+myId_card;
-    QNetworkRequest request((site_url));
-    //WEBTOKEN ALKU
-    request.setRawHeader(QByteArray("Authorization"),(webToken));
-    //WEBTOKEN LOPPU
-    infoManager = new QNetworkAccessManager(this);
 
-    connect(infoManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(infoSlot(QNetworkReply*)));
-
-    reply = infoManager->get(request);
 }
 
 void TietoWindow::infoSlot(QNetworkReply *reply)

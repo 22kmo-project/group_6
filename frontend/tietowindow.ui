@@ -31,25 +31,6 @@
     <string>Takaisin</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btnMuokkaa">
-   <property name="geometry">
-    <rect>
-     <x>336</x>
-     <y>380</y>
-     <width>131</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Muokkaa tietoja</string>
-   </property>
-   <property name="default">
-    <bool>false</bool>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -100,6 +81,12 @@
    </property>
    <property name="autoFillBackground">
     <bool>true</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTextEdit {
+  background: transparent;
+  border: none;
+}</string>
    </property>
    <property name="readOnly">
     <bool>true</bool>
