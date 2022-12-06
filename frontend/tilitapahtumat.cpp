@@ -74,6 +74,7 @@ void Tilitapahtumat::tableEditor(QJsonDocument doc)
         QTableWidgetItem *amount;
         QString logString;
 
+
         int row=0;
             foreach(const QJsonValue &value, doc.array()){
                 ui->table_Tilitapahtumat->insertRow(ui->table_Tilitapahtumat->rowCount());
@@ -99,7 +100,7 @@ void Tilitapahtumat::tableEditor(QJsonDocument doc)
             ui->table_Tilitapahtumat->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
             ui->table_Tilitapahtumat->resizeRowsToContents();
             ui->table_Tilitapahtumat->scrollToBottom();
-
+            ui->table_Tilitapahtumat->setEditTriggers(QAbstractItemView::NoEditTriggers);
   }
 
 void Tilitapahtumat::on_btn_takaisin_clicked()
