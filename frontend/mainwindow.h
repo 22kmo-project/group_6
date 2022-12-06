@@ -21,6 +21,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
 private slots:
     void on_btnLogin_clicked();
     void loginSlot (QNetworkReply *reply);
@@ -33,7 +34,7 @@ private:
     QNetworkAccessManager *loginManager;
     QNetworkReply *reply;
     QByteArray response_data;
+    QByteArray token;
     QString id_card;
-
 };
 #endif // MAINWINDOW_H

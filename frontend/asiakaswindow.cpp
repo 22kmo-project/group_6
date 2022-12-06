@@ -6,13 +6,14 @@
 #include "saldo.h"
 #include "tiedot.h"
 
-AsiakasWindow::AsiakasWindow(QString id_card,QWidget *parent) :
+AsiakasWindow::AsiakasWindow(QString id_card, QByteArray token, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AsiakasWindow)
 {
     ui->setupUi(this);
     ui->labelIduser->setText(id_card);
-    newId_card = id_card;
+    myId_card = id_card;
+    webToken = token;
     qDebug()<<id_card;
 }
 
@@ -26,45 +27,12 @@ AsiakasWindow::~AsiakasWindow()
 }
 
 
-void AsiakasWindow::setWebToken(const QByteArray &newWebToken)
-{
-    webToken = newWebToken;
-}
-
-
-
 void AsiakasWindow::on_btnTapahtumat_clicked()
 {
-    ObjectTilitapahtuma = new Tilitapahtumat;
-    ObjectTilitapahtuma -> setWebToken(webToken);
-    ObjectTilitapahtuma -> setId_card(newId_card);
+    ObjectTilitapahtuma = new Tilitapahtumat(myId_card, webToken);
     ObjectTilitapahtuma -> show();
 }
 
-void AsiakasWindow::on_btnNosto_clicked()
-{
-    Nosto nosto;
-    nosto.setModal(true);
-    nosto.exec();
-}
-
-void AsiakasWindow::on_btnSaldo_clicked()
-{
-    Saldo saldo;
-   saldo.setModal(true);
-   saldo.exec();
-
-}
-
-void AsiakasWindow::on_btnTiedot_clicked()
-{
-
-    Tiedot tietoikkuna;
-    tietoikkuna.setModal(true);
-    tietoikkuna.exec();
-
-
-}
 
 void AsiakasWindow::on_btnLogout_clicked()
 {
