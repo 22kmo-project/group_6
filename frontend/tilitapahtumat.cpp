@@ -26,11 +26,11 @@ Tilitapahtumat::~Tilitapahtumat()
 void Tilitapahtumat::getTilitapahtuma()
 {
     qDebug()<<"Kortti id: "+ myId_card;
-    QByteArray myToken="Bearer "+webToken;
+    //QByteArray myToken="Bearer "+webToken;
     qDebug()<<"Webtoken: "+webToken;
     QString site_url = MyUrl::getBaseUrl() + "/selaa_tilitapahtuma/"+myId_card; //hakee tiedot myId_cardin mukaan
     QNetworkRequest request((site_url));
-    request.setRawHeader(QByteArray("Authorization"),(myToken));
+    request.setRawHeader(QByteArray("Authorization"),(webToken));
 
 
     tilitapahtumaManager = new QNetworkAccessManager(this);

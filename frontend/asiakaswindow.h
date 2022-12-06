@@ -26,7 +26,7 @@ public:
 
 private slots:
 
-
+    void on_btnTiedot_clicked();
     void on_btnTapahtumat_clicked();
 
     void on_btnLogout_clicked();
