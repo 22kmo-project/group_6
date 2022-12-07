@@ -25,7 +25,7 @@ public:
     ~AsiakasWindow();
 
 private slots:
-
+    void nimiSlot (QNetworkReply *reply);
     void on_btnTiedot_clicked();
     void on_btnTapahtumat_clicked();
 
@@ -38,6 +38,7 @@ private:
     TietoWindow *ObjectTietoWindow;
     QString myId_card;
     QNetworkAccessManager *loginManager;
+    QNetworkAccessManager *nimiManager;
     QNetworkReply *reply;
     QByteArray response_data;
     Tilitapahtumat *ObjectTilitapahtuma;

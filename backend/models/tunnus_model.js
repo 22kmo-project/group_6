@@ -31,6 +31,9 @@ const tunnus = {
     },
     checkPassword: function(id_card,callback){
         return db.query('select card_pin from tunnus where id_card=?',[id_card],callback);
+    },
+    getUserName: function(id,callback){
+        return db.query('select fname from asiakas inner join tunnus on asiakas.id_asiakas=tunnus.id_asiakas where tunnus.id_card=?',[id],callback);
     }
 };
 

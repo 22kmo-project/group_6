@@ -14,9 +14,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete objectAsiakasWindow;
-    objectAsiakasWindow=nullptr;
 }
-
 
 void MainWindow::on_btnLogin_clicked()
 {
@@ -72,7 +70,6 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     reply->deleteLater();
     loginManager->deleteLater();
 }
-
 
 void MainWindow::on_btnQuit_clicked()
 {
