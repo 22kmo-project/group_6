@@ -16,6 +16,7 @@ var loginRouter = require('./routes/login');
 var asiakastiedotRouter = require('./routes/asiakastiedot');
 var tilitiedotRouter = require('./routes/tilitiedot');
 var selaa_tilitapahtumaRouter = require('./routes/selaa_tilitapahtuma');
+var nimenhakuRouter = require ('./routes/nimenhaku')
 
 var app = express();
 
@@ -40,6 +41,7 @@ app.use('/tilitapahtuma', tilitapahtumaRouter);
 app.use('/asiakastiedot', asiakastiedotRouter);
 app.use('/tilitiedot', tilitiedotRouter);
 app.use('/selaa_tilitapahtuma', selaa_tilitapahtumaRouter);
+app.use('/nimenhaku', nimenhakuRouter);
 
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization']

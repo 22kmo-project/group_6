@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include "asiakaswindow.h"
-#include "myurl.h"
 
 #include <QtNetwork>
 #include <QNetworkAccessManager>
@@ -25,7 +24,6 @@ public:
 private slots:
     void on_btnLogin_clicked();
     void loginSlot (QNetworkReply *reply);
-
     void on_btnQuit_clicked();
 
 private:
