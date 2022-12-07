@@ -73,7 +73,7 @@ void Tilitapahtumat::tableEditor(QJsonDocument doc)
         QTableWidgetItem *type;
         QTableWidgetItem *amount;
         QString logString;
-
+        QString withdraw = "Nosto";
 
         int row=0;
             foreach(const QJsonValue &value, doc.array()){
@@ -89,8 +89,12 @@ void Tilitapahtumat::tableEditor(QJsonDocument doc)
 
                 logString = json_obj["transaction"].toString(); // Tässä otetaan tapahtuman tyyppi esim. nosto
                 type = new QTableWidgetItem(logString);
-                amount = new QTableWidgetItem(QString::number(json_obj["amount"].toInt()) + "€"); // Tässä sitten saadaan määrä
-
+                if(logString==withdraw){  //Tarkistetaan oliko transactionin tyyppi Depit withdraw ja muutetaan määrä negatiiviseksi jos oli
+                            amount = new QTableWidgetItem("-" + QString::number(json_obj["amount"].toInt()) + "€" );
+                        }else
+                            {
+                            amount = new QTableWidgetItem(QString::number(json_obj["amount"].toInt()) + "€");
+                            }
                 ui->table_Tilitapahtumat->setItem(row, 0, date);  //asetetaan tauluun columnien arvot riville
                 ui->table_Tilitapahtumat->setItem(row, 1, time);
                 ui->table_Tilitapahtumat->setItem(row, 2, type);
