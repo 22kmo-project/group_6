@@ -27,6 +27,11 @@ AsiakasWindow::AsiakasWindow(QString id_card, QByteArray token, QWidget *parent)
     connect(nimiManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(nimiSlot(QNetworkReply*)));
 
     reply = nimiManager->get(request);
+
+    ajastin30 = new QTimer;
+
+    connect(ajastin30, SIGNAL(timeout()), this, SLOT(ajastin30Slot()));
+    ajastin30->start(1000);
 }
 
 void AsiakasWindow::nimiSlot(QNetworkReply *reply)
@@ -53,19 +58,42 @@ AsiakasWindow::~AsiakasWindow()
 
 void AsiakasWindow::on_btnTapahtumat_clicked()
 {
+    ajastin30->stop();
     ObjectTilitapahtuma = new Tilitapahtumat(myId_card, webToken);
     ObjectTilitapahtuma -> show();
 }
 
 void AsiakasWindow::on_btnTiedot_clicked()
 {
+    ajastin30->stop();
     ObjectTietoWindow=new TietoWindow(myId_card, webToken);
     ObjectTietoWindow->show();
 }
 
 void AsiakasWindow::on_btnLogout_clicked()
 {
-    this->close();
+    logout();
+}
+
+void AsiakasWindow::logout()
+{
+    webToken="";
+    myId_card="";
+    response_data="";
+    qDebug()<<"webToken: "<<response_data;
+    qDebug()<<"Vai sittenkin: "<<webToken;
+    qDebug()<<"id_card: "<<myId_card;
+    close();
+}
+
+void AsiakasWindow::ajastin30Slot()
+{
+    aika30Sek++;
+    qDebug()<<" AsiakasWindow 30 timeri: " << aika30Sek << " sekuntia";
+    if (aika30Sek > 29)
+    {
+        logout();
+    }
 }
 
 

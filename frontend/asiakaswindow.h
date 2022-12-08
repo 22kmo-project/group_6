@@ -9,6 +9,7 @@
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 #include <QMainWindow>
+#include <QTimer>
 
 
 
@@ -23,6 +24,10 @@ class AsiakasWindow : public QDialog
 public:
     explicit AsiakasWindow(QString id_card, QByteArray token, QWidget *parent = nullptr);
     ~AsiakasWindow();
+    QTimer * ajastin30;
+
+public slots:
+    void ajastin30Slot();
 
 private slots:
     void nimiSlot (QNetworkReply *reply);
@@ -42,6 +47,8 @@ private:
     QNetworkReply *reply;
     QByteArray response_data;
     Tilitapahtumat *ObjectTilitapahtuma;
+    void logout();
+    int aika30Sek=0;
 
 };
 
