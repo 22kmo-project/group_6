@@ -6,6 +6,8 @@
 #include <QtNetwork>
 #include <QJsonDocument>
 #include <QMainWindow>
+#include <QTableWidget>
+#include <QStandardItemModel>
 
 
 namespace Ui {
@@ -21,19 +23,24 @@ public:
     ~TietoWindow();
 
 private slots:
-    void on_btnLoad_clicked();
     void infoSlot (QNetworkReply *reply);
     void tiliSlot (QNetworkReply *reply);
+    void tapahtumaSlot (QNetworkReply *reply);
 
     void on_btnBack_clicked();
 private:
+    void getTapahtuma();
     Ui::TietoWindow *ui;
     QByteArray webToken;
     QNetworkAccessManager *infoManager;
+    QNetworkAccessManager *tiliManager;
+    QNetworkAccessManager *tapahtumaManager;
     QNetworkReply *reply;
     QByteArray response_data;
     QString myId_card;
-    QNetworkAccessManager *tiliManager;
+    QStandardItemModel *model;
+    void tableEditor(QJsonDocument);
+
 };
 
 #endif // TIETOWINDOW_H

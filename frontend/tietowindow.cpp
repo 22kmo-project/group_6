@@ -9,8 +9,8 @@ TietoWindow::TietoWindow(QString id_card, QByteArray token, QWidget *parent) :
 {
     ui->setupUi(this);
     myId_card=id_card;
-    ui->btnLoad->hide();
     webToken = token;
+    getTapahtuma();
 
     QString site_url=MyUrl::getBaseUrl()+"/asiakastiedot/"+myId_card;
     QNetworkRequest request((site_url));
@@ -29,12 +29,6 @@ TietoWindow::TietoWindow(QString id_card, QByteArray token, QWidget *parent) :
 TietoWindow::~TietoWindow()
 {
     delete ui;
-}
-
-
-void TietoWindow::on_btnLoad_clicked()
-{
-
 }
 
 void TietoWindow::infoSlot(QNetworkReply *reply)
@@ -81,17 +75,95 @@ void TietoWindow::tiliSlot(QNetworkReply *reply)
          QJsonObject json_obj = value.toObject();
          tili+=("Tilin id: "+json_obj["id_tili"].toString())+"\n"+
          "Tilin saldo: "+QString::number(json_obj["account_balance"].toInt())+"€\r\n";
+         ui->textTilit->setText(tili);
+
 
      }
-     ui->textTilit->setText(tili);
-
      reply->deleteLater();
      tiliManager->deleteLater();
 }
 
+void TietoWindow::getTapahtuma()
+{
+    QString site_url=MyUrl::getBaseUrl()+"/selaa_tilitapahtuma/"+myId_card;
+    QNetworkRequest request((site_url));
+    //qDebug()<<site_url;
+    //WEBTOKEN ALKU
+    request.setRawHeader(QByteArray("Authorization"),(webToken));
+    //WEBTOKEN LOPPU
+    tapahtumaManager = new QNetworkAccessManager(this);
+    connect(tapahtumaManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(tapahtumaSlot(QNetworkReply*)));
+
+    reply = tapahtumaManager->get(request);
+}
+
+void TietoWindow::tapahtumaSlot(QNetworkReply *reply)
+{
+    QByteArray response_data=reply->readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+    QJsonArray json_array = json_doc.array();
+    QString tapahtumaInfo;
+
+    tableEditor(json_doc);
+    reply->deleteLater();
+
+
+    qDebug()<< "QString Data: " + tapahtumaInfo;
+    tapahtumaManager->deleteLater();
+}
+
+void TietoWindow::tableEditor(QJsonDocument doc)
+{
+    qDebug()<< doc;
+    ui->tableTapahtumat->setRowCount(5);
+    ui->tableTapahtumat->setColumnCount(4);
+    ui->tableTapahtumat->setHorizontalHeaderLabels({"Date", "Time", "Type", "Amount"});
+
+    QTableWidgetItem *date;
+        QString dateHolder;
+        QStringList splittedDateTime;
+        QString timeHolder;
+        QTableWidgetItem *time;
+
+        QTableWidgetItem *type;
+        QTableWidgetItem *amount;
+        QString logString;
+        QString withdraw = "Nosto";
+
+        int row=0;
+            foreach(const QJsonValue &value, doc.array()){
+                QJsonObject json_obj = value.toObject();
+                //qDebug()<<json_obj;
+
+                dateHolder = json_obj["date"].toString();  //Tässä otetaan aika
+                splittedDateTime = dateHolder.split("T");
+                date = new QTableWidgetItem(splittedDateTime[0]);
+                timeHolder = splittedDateTime[1].split(".")[0];
+                time = new QTableWidgetItem(timeHolder);
+
+                logString = json_obj["transaction"].toString(); // Tässä otetaan tapahtuman tyyppi esim. nosto
+                type = new QTableWidgetItem(logString);
+                if(logString==withdraw){  //Tarkistetaan oliko transactionin tyyppi Depit withdraw ja muutetaan määrä negatiiviseksi jos oli
+                            amount = new QTableWidgetItem("-" + QString::number(json_obj["amount"].toInt()) + "€" );
+                        }else
+                            {
+                            amount = new QTableWidgetItem(QString::number(json_obj["amount"].toInt()) + "€");
+                            }
+                ui->tableTapahtumat->setItem(row, 0, date);  //asetetaan tauluun columnien arvot riville
+                ui->tableTapahtumat->setItem(row, 1, time);
+                ui->tableTapahtumat->setItem(row, 2, type);
+                ui->tableTapahtumat->setItem(row, 3, amount);
+                row++;
+            }
+            ui->tableTapahtumat->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+            ui->tableTapahtumat->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+            ui->tableTapahtumat->resizeRowsToContents();
+            ui->tableTapahtumat->scrollToBottom();
+            ui->tableTapahtumat->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+  }
 
 void TietoWindow::on_btnBack_clicked()
 {
     close();
 }
-
