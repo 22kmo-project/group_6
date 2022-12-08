@@ -3,9 +3,7 @@
 #include "myurl.h"
 #include "tietowindow.h"
 #include "tilitapahtumat.h"
-#include "nosto.h"
-#include "saldo.h"
-#include "tiedot.h"
+
 
 AsiakasWindow::AsiakasWindow(QString id_card, QByteArray token, QWidget *parent) :
     QDialog(parent),

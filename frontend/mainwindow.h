@@ -24,7 +24,7 @@ public:
 private slots:
     //void on_btnLogin_clicked();
     void loginSlot (QNetworkReply *reply);
-    void on_btnQuit_clicked();
+    //void on_btnQuit_clicked();
 
     //NUMPAD
     void on_btnNP_1_clicked();

@@ -8,6 +8,7 @@
 #include <QMainWindow>
 #include <QTableWidget>
 #include <QStandardItemModel>
+#include <QDebug>
 
 
 namespace Ui {

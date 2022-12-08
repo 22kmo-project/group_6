@@ -3,7 +3,6 @@
 
 #include "tietowindow.h"
 #include "tilitapahtumat.h"
-#include "qdebug.h"
 
 #include <QDialog>
 #include <QNetworkAccessManager>
