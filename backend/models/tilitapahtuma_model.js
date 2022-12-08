@@ -32,7 +32,7 @@ const tilitapahtuma = {
     },
     
     getByIdCard: function (id, callback) {
-        return db.query('select * from tilitapahtuma where tilitapahtuma.id_card=?', [id], callback);
+        return db.query('select * from tilitapahtuma where tilitapahtuma.id_card=? ORDER BY id_tapahtuma DESC', [id], callback);
     },
   
 };
