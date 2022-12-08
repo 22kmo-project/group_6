@@ -71,10 +71,10 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     loginManager->deleteLater();
 }
 
-void MainWindow::on_btnQuit_clicked()
+/*void MainWindow::on_btnQuit_clicked()
 {
     QCoreApplication::quit();
-}
+}*/
 
 void MainWindow::on_btnNP_1_clicked()
 {
