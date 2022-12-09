@@ -45,7 +45,6 @@ private:
     QNetworkAccessManager *tapahtumaManager;
     QNetworkReply *reply;
     QByteArray response_data;
-    QTimer * ajastin30;
     QTimer * ajastin10;
     QString myId_card;
     QStandardItemModel *model;

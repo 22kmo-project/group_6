@@ -15,6 +15,7 @@ TietoWindow::TietoWindow(QString id_card, QByteArray token, QWidget *parent) :
     ajastin10 = new QTimer;
     connect(ajastin10, SIGNAL(timeout()), this, SLOT(ajastin10Slot()));
     ajastin10->start(1000);
+    qDebug()<<"Tieto ikkuna sulkeutuu kun on kulunut 10 sekuntia";
 
 
     QString site_url=MyUrl::getBaseUrl()+"/asiakastiedot/"+myId_card;
@@ -113,13 +114,13 @@ void TietoWindow::tapahtumaSlot(QNetworkReply *reply)
     reply->deleteLater();
 
 
-    qDebug()<< "QString Data: " + tapahtumaInfo;
+    //qDebug()<< "QString Data: " + tapahtumaInfo;
     tapahtumaManager->deleteLater();
 }
 
 void TietoWindow::tableEditor(QJsonDocument doc)
 {
-    qDebug()<< doc;
+    //qDebug()<< doc;
     ui->tableTapahtumat->setRowCount(5);
     ui->tableTapahtumat->setColumnCount(4);
     ui->tableTapahtumat->setHorizontalHeaderLabels({"Date", "Time", "Type", "Amount"});

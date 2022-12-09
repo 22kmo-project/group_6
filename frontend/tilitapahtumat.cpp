@@ -18,6 +18,7 @@ Tilitapahtumat::Tilitapahtumat(QString id_card, QByteArray token, QWidget *paren
     connect(ajastin10, SIGNAL(timeout()), this, SLOT(ajastin10Slot()));
     ajastin10->start(1000);
 
+
 }
 
 Tilitapahtumat::~Tilitapahtumat()
