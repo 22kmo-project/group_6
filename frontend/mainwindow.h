@@ -7,6 +7,8 @@
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 #include <QMainWindow>
+#include <QTimer>
+#include <QScreen>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,7 +24,6 @@ public:
 
 
 private slots:
-    //void on_btnLogin_clicked();
     void loginSlot (QNetworkReply *reply);
     //void on_btnQuit_clicked();
 
@@ -41,6 +42,8 @@ private slots:
     void on_btnNP_ok_clicked();
     void on_btnNP_clear_clicked();
     void on_btnNP_stop_clicked();
+
+    void clearData();
 
 private:
     Ui::MainWindow *ui;

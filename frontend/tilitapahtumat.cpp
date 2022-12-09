@@ -14,6 +14,11 @@ Tilitapahtumat::Tilitapahtumat(QString id_card, QByteArray token, QWidget *paren
     webToken = token;
     getTilitapahtuma();
 
+    ajastin10 = new QTimer;
+    connect(ajastin10, SIGNAL(timeout()), this, SLOT(ajastin10Slot()));
+    ajastin10->start(1000);
+
+
 }
 
 Tilitapahtumat::~Tilitapahtumat()
@@ -109,6 +114,26 @@ void Tilitapahtumat::tableEditor(QJsonDocument doc)
   }
 
 void Tilitapahtumat::on_btn_takaisin_clicked()
+{
+    ajastin10->stop();
+    resetKaikkiAjastimet();
+    close();
+}
+
+void Tilitapahtumat::ajastin10Slot()
+{
+    aika10Sek++;
+    if (aika10Sek > 9)
     {
+        ajastin10->stop();
         close();
+        delete ajastin10;
+        delete ui;
     }
+    qDebug()<< "10 sek ajastin: " << aika10Sek;
+}
+
+void Tilitapahtumat::resetKaikkiAjastimet()
+{
+    emit resetAjastin30();
+}

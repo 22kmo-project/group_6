@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    move(QGuiApplication::screens().at(0)->geometry().center() - frameGeometry().center());
 }
 
 MainWindow::~MainWindow()
@@ -15,27 +16,6 @@ MainWindow::~MainWindow()
     delete ui;
     delete objectAsiakasWindow;
 }
-
-/*void MainWindow::on_btnLogin_clicked()
-{
-    id_card=ui->textIdUser->text();
-    QString card_pin=ui->textcard_pin->text();
-
-    QJsonObject jsonObj;
-    jsonObj.insert("id_card",id_card);
-    jsonObj.insert("card_pin",card_pin);
-
-    QString site_url=MyUrl::getBaseUrl()+"/login";
-    QNetworkRequest request((site_url));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-
-
-    loginManager = new QNetworkAccessManager(this);
-    connect(loginManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(loginSlot(QNetworkReply*)));
-
-    reply = loginManager->post(request, QJsonDocument(jsonObj).toJson());
-
-}*/
 
 void MainWindow::loginSlot(QNetworkReply *reply)
 {
@@ -64,6 +44,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
                 token = "Bearer "+response_data;
                 objectAsiakasWindow=new AsiakasWindow(id_card, token);
                 objectAsiakasWindow->show();
+                clearData();
             }
         }
     }
@@ -234,5 +215,12 @@ void MainWindow::on_btnNP_stop_clicked()
 {
         ui->textIdUser->clear();
         ui->textcard_pin->clear();
+}
+
+void MainWindow::clearData()
+{
+    ui->textIdUser->clear();
+    ui->textcard_pin->clear();
+    ui->labelInfo->clear();
 }
 

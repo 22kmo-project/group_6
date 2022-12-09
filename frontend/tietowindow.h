@@ -22,6 +22,10 @@ class TietoWindow : public QDialog
 public:
     explicit TietoWindow(QString id_card, QByteArray token, QWidget *parent = nullptr);
     ~TietoWindow();
+    void resetKaikkiAjastimet();
+
+signals:
+    void resetAjastin30();
 
 private slots:
     void infoSlot (QNetworkReply *reply);
@@ -29,7 +33,10 @@ private slots:
     void tapahtumaSlot (QNetworkReply *reply);
 
     void on_btnBack_clicked();
+    void ajastin10Slot();
 private:
+
+    int aika10Sek = 0;
     void getTapahtuma();
     Ui::TietoWindow *ui;
     QByteArray webToken;
@@ -38,6 +45,7 @@ private:
     QNetworkAccessManager *tapahtumaManager;
     QNetworkReply *reply;
     QByteArray response_data;
+    QTimer * ajastin10;
     QString myId_card;
     QStandardItemModel *model;
     void tableEditor(QJsonDocument);

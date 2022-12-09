@@ -23,10 +23,11 @@ class AsiakasWindow : public QDialog
 public:
     explicit AsiakasWindow(QString id_card, QByteArray token, QWidget *parent = nullptr);
     ~AsiakasWindow();
-    QTimer * ajastin30;
+
 
 public slots:
     void ajastin30Slot();
+    void resetAjastimetSlot();
 
 private slots:
     void nimiSlot (QNetworkReply *reply);
@@ -41,6 +42,7 @@ private:
     QByteArray webToken;
     TietoWindow *ObjectTietoWindow;
     QString myId_card;
+    QTimer * ajastin30;
     QNetworkAccessManager *loginManager;
     QNetworkAccessManager *nimiManager;
     QNetworkReply *reply;
