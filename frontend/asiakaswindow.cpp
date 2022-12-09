@@ -8,12 +8,14 @@
 AsiakasWindow::AsiakasWindow(QString id_card, QByteArray token, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AsiakasWindow)
+
 {
     ui->setupUi(this);
     myId_card = id_card;
     webToken = token;
     qDebug()<<id_card;
-    ui->labelIduser->setAlignment(Qt::AlignCenter);
+    ui->buttonLayout->setAlignment(Qt::AlignHCenter);
+
     QString site_url=MyUrl::getBaseUrl()+"/nimenhaku/"+myId_card;
     QNetworkRequest request((site_url));
     //qDebug()<<site_url;
