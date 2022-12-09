@@ -24,8 +24,8 @@ const tilioikeus = {
     update: function (id, update_data, callback) {
        
             return db.query(
-                'update tilioikeus set id_tilioikeus=?,id_tili=?, id_asiakas=?',
-                [update_data.id_tilioikeus, update_data.id_tili, update_data.id_asiakas, id],
+                'update tilioikeus set id_tili=?, id_asiakas=? where id_tilioikeus=?',
+                [update_data.id_tili, update_data.id_asiakas, id],
                 callback);
    
     },
