@@ -8,12 +8,14 @@
 AsiakasWindow::AsiakasWindow(QString id_card, QByteArray token, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AsiakasWindow)
+
 {
     ui->setupUi(this);
     myId_card = id_card;
     webToken = token;
     qDebug()<<id_card;
-    ui->labelIduser->setAlignment(Qt::AlignCenter);
+    ui->buttonLayout->setAlignment(Qt::AlignHCenter);
+
     QString site_url=MyUrl::getBaseUrl()+"/nimenhaku/"+myId_card;
     QNetworkRequest request((site_url));
     //qDebug()<<site_url;
@@ -58,7 +60,7 @@ AsiakasWindow::~AsiakasWindow()
 void AsiakasWindow::on_btnTapahtumat_clicked()
 {
     ObjectTilitapahtuma=new Tilitapahtumat(myId_card, webToken);
-    ObjectTilitapahtuma->show();
+    ObjectTilitapahtuma->showFullScreen();
     connect(ObjectTilitapahtuma, SIGNAL(resetAjastin30()), this, SLOT(resetAjastimetSlot()));
     resetAjastimetSlot();
 }
@@ -66,7 +68,7 @@ void AsiakasWindow::on_btnTapahtumat_clicked()
 void AsiakasWindow::on_btnTiedot_clicked()
 {
     ObjectTietoWindow=new TietoWindow(myId_card, webToken);
-    ObjectTietoWindow->show();
+    ObjectTietoWindow->showFullScreen();
     connect(ObjectTietoWindow, SIGNAL(resetAjastin30()), this, SLOT(resetAjastimetSlot()));
     resetAjastimetSlot();
 }
