@@ -7,6 +7,8 @@
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 #include <QMainWindow>
+#include <QTimer>
+#include <QScreen>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

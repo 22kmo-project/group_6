@@ -12,6 +12,11 @@ TietoWindow::TietoWindow(QString id_card, QByteArray token, QWidget *parent) :
     webToken = token;
     getTapahtuma();
 
+    ajastin10 = new QTimer;
+    connect(ajastin10, SIGNAL(timeout()), this, SLOT(ajastin10Slot()));
+    ajastin10->start(1000);
+
+
     QString site_url=MyUrl::getBaseUrl()+"/asiakastiedot/"+myId_card;
     QNetworkRequest request((site_url));
     //qDebug()<<site_url;
@@ -165,5 +170,25 @@ void TietoWindow::tableEditor(QJsonDocument doc)
 
 void TietoWindow::on_btnBack_clicked()
 {
+    ajastin10->stop();
+    resetKaikkiAjastimet();
     close();
+}
+
+void TietoWindow::ajastin10Slot()
+{
+    aika10Sek++;
+    if (aika10Sek > 9)
+    {
+        ajastin10->stop();
+        close();
+        delete ajastin10;
+        delete ui;
+    }
+    qDebug()<< "10 sek ajastin: " << aika10Sek;
+}
+
+void TietoWindow::resetKaikkiAjastimet()
+{
+    emit resetAjastin30();
 }

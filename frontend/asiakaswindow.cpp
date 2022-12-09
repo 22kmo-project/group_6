@@ -27,7 +27,6 @@ AsiakasWindow::AsiakasWindow(QString id_card, QByteArray token, QWidget *parent)
     reply = nimiManager->get(request);
 
     ajastin30 = new QTimer;
-
     connect(ajastin30, SIGNAL(timeout()), this, SLOT(ajastin30Slot()));
     ajastin30->start(1000);
 }
@@ -50,22 +49,26 @@ AsiakasWindow::~AsiakasWindow()
 {
     delete ui;
     delete ObjectTilitapahtuma;
+    delete ObjectTietoWindow;
     ObjectTilitapahtuma=nullptr;
+    ObjectTietoWindow=nullptr;
 }
 
 
 void AsiakasWindow::on_btnTapahtumat_clicked()
 {
-    ajastin30->stop();
-    ObjectTilitapahtuma = new Tilitapahtumat(myId_card, webToken);
-    ObjectTilitapahtuma -> show();
+    ObjectTilitapahtuma=new Tilitapahtumat(myId_card, webToken);
+    ObjectTilitapahtuma->show();
+    connect(ObjectTilitapahtuma, SIGNAL(resetAjastin30()), this, SLOT(resetAjastimetSlot()));
+    resetAjastimetSlot();
 }
 
 void AsiakasWindow::on_btnTiedot_clicked()
 {
-    ajastin30->stop();
     ObjectTietoWindow=new TietoWindow(myId_card, webToken);
     ObjectTietoWindow->show();
+    connect(ObjectTietoWindow, SIGNAL(resetAjastin30()), this, SLOT(resetAjastimetSlot()));
+    resetAjastimetSlot();
 }
 
 void AsiakasWindow::on_btnLogout_clicked()
@@ -75,6 +78,7 @@ void AsiakasWindow::on_btnLogout_clicked()
 
 void AsiakasWindow::logout()
 {
+    ajastin30->stop();
     webToken="";
     myId_card="";
     response_data="";
@@ -82,6 +86,7 @@ void AsiakasWindow::logout()
     qDebug()<<"Vai sittenkin: "<<webToken;
     qDebug()<<"id_card: "<<myId_card;
     close();
+    delete ajastin30;
 }
 
 void AsiakasWindow::ajastin30Slot()
@@ -94,5 +99,10 @@ void AsiakasWindow::ajastin30Slot()
     }
 }
 
+
+void AsiakasWindow::resetAjastimetSlot()
+{
+       aika30Sek = 0;
+}
 
 
