@@ -13,8 +13,8 @@ const asiakas = {
     add: function (add_data, callback) {
        
             return db.query(
-                'insert into asiakas (id_asiakas,fname,lname,address,phoneNumber) values(?,?,?,?,?)',
-                [add_data.id_asiakas, add_data.fname, add_data.lname, add_data.address, add_data.phoneNumber],
+                'insert into asiakas (fname,lname,address,phoneNumber) values(?,?,?,?)',
+                [add_data.fname, add_data.lname, add_data.address, add_data.phoneNumber],
                 callback);
     },
    

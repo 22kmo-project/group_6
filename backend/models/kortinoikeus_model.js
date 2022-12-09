@@ -24,8 +24,8 @@ const kortinoikeus = {
     update: function (id, update_data, callback) {
        
             return db.query(
-                'update kortinoikeus set id_oikeus=?,id_tili=?, id_card=?',
-                [update_data.id_oikeus, update_data.id_tili, update_data.id_card, id],
+                'update kortinoikeus set id_tili=?, id_card=? where id_oikeus=?',
+                [update_data.id_tili, update_data.id_card, id],
                 callback);
    
     },
