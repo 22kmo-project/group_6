@@ -14,63 +14,11 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>71</y>
-      <width>131</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Kortin numero</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="textcard_pin">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>120</y>
-      <width>271</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="maxLength">
-     <number>4</number>
-    </property>
-    <property name="echoMode">
-     <enum>QLineEdit::Password</enum>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>120</y>
-      <width>151</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Kortin PIN-koodi</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="textIdUser">
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>72</y>
+      <y>170</y>
       <width>271</width>
       <height>24</height>
      </rect>
@@ -79,10 +27,10 @@
    <widget class="QLabel" name="labelInfo">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>150</y>
-      <width>401</width>
-      <height>71</height>
+      <x>160</x>
+      <y>20</y>
+      <width>421</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="font">
@@ -92,6 +40,9 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="btnNP_1">

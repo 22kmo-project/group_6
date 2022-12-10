@@ -30,7 +30,16 @@ const tunnus = {
         });
     },
     checkPassword: function(id_card,callback){
-        return db.query('select card_pin from tunnus where id_card=?',[id_card],callback);
+        return db.query('select card_pin from tunnus where id_card=? and lukitus<3',[id_card],callback);   
+    },
+    /*tunnusLukitusLaskuri: function(id,callback){
+        return db.query('update tunnus set lukitus+1 where id_card=?',[id],callback);   
+    },*/
+    tunnusLukitus: function(id,callback){
+        return db.query('update tunnus set lukitus=lukitus+1 where id_card=?',[id],callback);   
+    },
+    tunnusAvaus: function(id,callback){
+        return db.query('update tunnus set lukitus=0 where id_card=?',[id],callback);   
     },
     getUserName: function(id,callback){
         return db.query('select fname from asiakas inner join tunnus on asiakas.id_asiakas=tunnus.id_asiakas where tunnus.id_card=?',[id],callback);

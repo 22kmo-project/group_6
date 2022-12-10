@@ -16,7 +16,9 @@ var loginRouter = require('./routes/login');
 var asiakastiedotRouter = require('./routes/asiakastiedot');
 var tilitiedotRouter = require('./routes/tilitiedot');
 var selaa_tilitapahtumaRouter = require('./routes/selaa_tilitapahtuma');
-var nimenhakuRouter = require ('./routes/nimenhaku')
+var nimenhakuRouter = require ('./routes/nimenhaku');
+var kortin_lukitusRouter = require('./routes/kortin_lukitus');
+var kortin_avausRouter = require('./routes/kortin_avaus');
 
 var app = express();
 
@@ -28,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
+app.use('/kortin_lukitus', kortin_lukitusRouter);
+app.use('/kortin_avaus', kortin_avausRouter);
 
 app.use(authenticateToken);
 
