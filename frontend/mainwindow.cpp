@@ -8,8 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->loginLayout->setAlignment(Qt::AlignVCenter);
-    ui->loginLayout->setAlignment(Qt::AlignHCenter);
+    move(QGuiApplication::screens().at(0)->geometry().center() - frameGeometry().center());
 }
 
 MainWindow::~MainWindow()
@@ -46,7 +45,6 @@ void MainWindow::loginSlot(QNetworkReply *reply)
                 objectAsiakasWindow=new AsiakasWindow(id_card, token);
                 objectAsiakasWindow->show();
                 clearData();
-
             }
         }
     }
