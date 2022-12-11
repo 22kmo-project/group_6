@@ -14,6 +14,11 @@ Tilitapahtumat::Tilitapahtumat(QString id_card, QByteArray token, QWidget *paren
     webToken = token;
     getTilitapahtuma();
 
+    ajastin10 = new QTimer;
+    connect(ajastin10, SIGNAL(timeout()), this, SLOT(ajastin10Slot()));
+    ajastin10->start(1000);
+
+
 }
 
 Tilitapahtumat::~Tilitapahtumat()
@@ -73,7 +78,7 @@ void Tilitapahtumat::tableEditor(QJsonDocument doc)
         QTableWidgetItem *type;
         QTableWidgetItem *amount;
         QString logString;
-
+        QString withdraw = "Nosto";
 
         int row=0;
             foreach(const QJsonValue &value, doc.array()){
@@ -89,8 +94,12 @@ void Tilitapahtumat::tableEditor(QJsonDocument doc)
 
                 logString = json_obj["transaction"].toString(); // Tässä otetaan tapahtuman tyyppi esim. nosto
                 type = new QTableWidgetItem(logString);
-                amount = new QTableWidgetItem(QString::number(json_obj["amount"].toInt()) + "€"); // Tässä sitten saadaan määrä
-
+                if(logString==withdraw){  //Tarkistetaan oliko transactionin tyyppi Depit withdraw ja muutetaan määrä negatiiviseksi jos oli
+                            amount = new QTableWidgetItem("-" + QString::number(json_obj["amount"].toInt()) + "€" );
+                        }else
+                            {
+                            amount = new QTableWidgetItem(QString::number(json_obj["amount"].toInt()) + "€");
+                            }
                 ui->table_Tilitapahtumat->setItem(row, 0, date);  //asetetaan tauluun columnien arvot riville
                 ui->table_Tilitapahtumat->setItem(row, 1, time);
                 ui->table_Tilitapahtumat->setItem(row, 2, type);
@@ -105,6 +114,26 @@ void Tilitapahtumat::tableEditor(QJsonDocument doc)
   }
 
 void Tilitapahtumat::on_btn_takaisin_clicked()
+{
+    ajastin10->stop();
+    resetKaikkiAjastimet();
+    close();
+}
+
+void Tilitapahtumat::ajastin10Slot()
+{
+    aika10Sek++;
+    if (aika10Sek > 9)
     {
+        ajastin10->stop();
         close();
+        delete ajastin10;
+        delete ui;
     }
+    qDebug()<< "10 sek ajastin: " << aika10Sek;
+}
+
+void Tilitapahtumat::resetKaikkiAjastimet()
+{
+    emit resetAjastin30();
+}

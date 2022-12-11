@@ -3,12 +3,12 @@
 
 #include "tietowindow.h"
 #include "tilitapahtumat.h"
-#include "qdebug.h"
 
 #include <QDialog>
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 #include <QMainWindow>
+#include <QTimer>
 
 
 
@@ -24,8 +24,13 @@ public:
     explicit AsiakasWindow(QString id_card, QByteArray token, QWidget *parent = nullptr);
     ~AsiakasWindow();
 
-private slots:
 
+public slots:
+    void ajastin30Slot();
+    void resetAjastimetSlot();
+
+private slots:
+    void nimiSlot (QNetworkReply *reply);
     void on_btnTiedot_clicked();
     void on_btnTapahtumat_clicked();
 
@@ -37,10 +42,14 @@ private:
     QByteArray webToken;
     TietoWindow *ObjectTietoWindow;
     QString myId_card;
+    QTimer * ajastin30;
     QNetworkAccessManager *loginManager;
+    QNetworkAccessManager *nimiManager;
     QNetworkReply *reply;
     QByteArray response_data;
     Tilitapahtumat *ObjectTilitapahtuma;
+    void logout();
+    int aika30Sek=0;
 
 };
 

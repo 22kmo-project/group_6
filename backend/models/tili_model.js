@@ -24,8 +24,8 @@ const tili = {
     update: function (id, update_data, callback) {
        
             return db.query(
-                'update tili set id_tili=?,account_balance=?',
-                [update_data.id_tili, update_data.account_balance, id],
+                'update tili set account_balance=? where id_tili=?',
+                [update_data.account_balance, id],
                 callback);
    
     },

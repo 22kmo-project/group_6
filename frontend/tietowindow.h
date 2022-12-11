@@ -8,6 +8,7 @@
 #include <QMainWindow>
 #include <QTableWidget>
 #include <QStandardItemModel>
+#include <QDebug>
 
 
 namespace Ui {
@@ -21,6 +22,10 @@ class TietoWindow : public QDialog
 public:
     explicit TietoWindow(QString id_card, QByteArray token, QWidget *parent = nullptr);
     ~TietoWindow();
+    void resetKaikkiAjastimet();
+
+signals:
+    void resetAjastin30();
 
 private slots:
     void infoSlot (QNetworkReply *reply);
@@ -28,7 +33,10 @@ private slots:
     void tapahtumaSlot (QNetworkReply *reply);
 
     void on_btnBack_clicked();
+    void ajastin10Slot();
 private:
+
+    int aika10Sek = 0;
     void getTapahtuma();
     void tableEditor(QJsonDocument);
 
