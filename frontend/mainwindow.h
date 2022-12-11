@@ -26,6 +26,8 @@ public:
 private slots:
     void loginSlot (QNetworkReply *reply);
     //void on_btnQuit_clicked();
+    void lukitusSlot (QNetworkReply *replyLukitus);
+    void avausSlot (QNetworkReply *replyAvaus);
 
     //NUMPAD
     void on_btnNP_1_clicked();
@@ -45,13 +47,23 @@ private slots:
 
     void clearData();
 
+
 private:
     Ui::MainWindow *ui;
     AsiakasWindow *objectAsiakasWindow;
     QNetworkAccessManager *loginManager;
+    QNetworkAccessManager *lukitusManager;
+    QNetworkAccessManager *avausManager;
     QNetworkReply *reply;
+    QNetworkReply *replyLukitus;
+    QNetworkReply *replyAvaus;
     QByteArray response_data;
     QByteArray token;
     QString id_card;
+    int pinCount; //VÄÄRIN ANNETUT PIN-KOODIT
+    int cardInserted; //ONKO KORTIN TUNNUS SYÖTETTY 1 = kyllä, 0 = ei
+    bool lukitus;
+
+
 };
 #endif // MAINWINDOW_H

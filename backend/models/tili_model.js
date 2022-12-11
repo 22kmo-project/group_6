@@ -35,6 +35,7 @@ const tili = {
     getUserAccounts: function(id,callback){
         return db.query('select tili.id_tili, account_balance from tili inner join kortinoikeus on tili.id_tili=kortinoikeus.id_tili inner join tunnus on kortinoikeus.id_card=tunnus.id_card where kortinoikeus.id_card=?',[id],callback);
     }
+   
   
 };
 module.exports = tili;
