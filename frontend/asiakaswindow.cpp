@@ -71,6 +71,14 @@ void AsiakasWindow::on_btnTiedot_clicked()
     resetAjastimetSlot();
 }
 
+void AsiakasWindow::on_btnNosto_clicked()
+{
+    ObjectNosto = new nosto(myId_card, webToken);
+    ObjectNosto->show();
+    connect(ObjectNosto, SIGNAL(resetAjastin30()), this, SLOT(resetAjastimetSlot()));
+    resetAjastimetSlot();
+}
+
 void AsiakasWindow::on_btnLogout_clicked()
 {
     logout();
@@ -92,7 +100,7 @@ void AsiakasWindow::logout()
 void AsiakasWindow::ajastin30Slot()
 {
     aika30Sek++;
-    qDebug()<<" AsiakasWindow 30 timeri: " << aika30Sek << " sekuntia";
+    //qDebug()<<" AsiakasWindow 30 timeri: " << aika30Sek << " sekuntia";
     if (aika30Sek > 29)
     {
         logout();

@@ -151,7 +151,7 @@ void MainWindow::avausSlot(QNetworkReply *replyAvaus)
     response_data=replyAvaus->readAll();
     qDebug()<<"avausSlot"<<response_data;
     int test=QString::compare(response_data, "false");
-    qDebug() << test;
+    //qDebug() << test;
 }
 
 /*void MainWindow::on_btnQuit_clicked()
