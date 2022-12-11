@@ -80,7 +80,7 @@ void TietoWindow::tiliSlot(QNetworkReply *reply)
      foreach (const QJsonValue &value, json_array) {
          QJsonObject json_obj = value.toObject();
          tili+=("Tilin id: "+json_obj["id_tili"].toString())+"\n"+
-         "Tilin saldo: "+QString::number(json_obj["account_balance"].toInt())+"€\r\n";
+         "Tilin saldo: "+QString::number(json_obj["account_balance"].toDouble())+"€\r\n";
 
      }
      ui->textTilit->setText(tili);

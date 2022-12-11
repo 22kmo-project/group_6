@@ -44,3 +44,10 @@ void AsiakasWindow::on_btnLogout_clicked()
 
 
 
+
+void AsiakasWindow::on_btnNosto_clicked()
+{
+    ObjectNosto=new nosto(myId_card, webToken);
+    ObjectNosto->show();
+}
+

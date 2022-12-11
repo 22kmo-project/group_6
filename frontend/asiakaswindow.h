@@ -4,6 +4,7 @@
 #include "tietowindow.h"
 #include "tilitapahtumat.h"
 #include "qdebug.h"
+#include "nosto.h"
 
 #include <QDialog>
 #include <QNetworkAccessManager>
@@ -32,6 +33,8 @@ private slots:
     void on_btnLogout_clicked();
 
 
+    void on_btnNosto_clicked();
+
 private:
     Ui::AsiakasWindow *ui;
     QByteArray webToken;
@@ -41,6 +44,7 @@ private:
     QNetworkReply *reply;
     QByteArray response_data;
     Tilitapahtumat *ObjectTilitapahtuma;
+    nosto *ObjectNosto;
 
 };
 
