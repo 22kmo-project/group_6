@@ -8,11 +8,13 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     pinCount=0;
     cardInserted=0;
     lukitus=false;
     move(QGuiApplication::screens().at(0)->geometry().center() - frameGeometry().center());
     ui->labelInfo->setText("Syötä kortin tunnus ja paina OK");
+
 }
 
 MainWindow::~MainWindow()
@@ -20,6 +22,7 @@ MainWindow::~MainWindow()
     delete ui;
     delete objectAsiakasWindow;
 }
+
 
 void MainWindow::on_btnNP_ok_clicked()
 {
@@ -55,6 +58,7 @@ void MainWindow::on_btnNP_ok_clicked()
 
 
 }
+
 
 void MainWindow::loginSlot(QNetworkReply *reply)
 {
@@ -115,6 +119,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
                 token = "Bearer "+response_data;
                 objectAsiakasWindow=new AsiakasWindow(id_card, token);
                 objectAsiakasWindow->show();
+
                 cardInserted=0;
                 pinCount=0;
                 clearData();
@@ -131,6 +136,10 @@ void MainWindow::loginSlot(QNetworkReply *reply)
                 connect(avausManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(avausSlot(QNetworkReply*)));
 
                 replyAvaus = avausManager->put(request, QJsonDocument().toJson());
+
+             
+
+
             }
         }
     }
@@ -226,6 +235,13 @@ void MainWindow::on_btnNP_stop_clicked()
 void MainWindow::clearData()
 {
     ui->textIdUser->clear();
+    ui->labelInfo->clear();
+}
+
+void MainWindow::clearData()
+{
+    ui->textIdUser->clear();
+    ui->textcard_pin->clear();
     ui->labelInfo->clear();
 }
 
