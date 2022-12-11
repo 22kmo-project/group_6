@@ -36,41 +36,9 @@ void MainWindow::loginSlot(QNetworkReply *reply)
         else{
             if(test==0)
             {
-                if(pinCount < 2)
-                {
                 ui->textIdUser->clear();
-                ui->labelInfo->setText("Kortin tunnus ja PIN-koodi eivät täsmää tai kortti on lukittu");
-                pinCount++; //väärin annettu pin-koodi +1 (saman kortin(tunnus) ollessa sisässä)
-                qDebug()<<"pinCount: " << pinCount;
-
-                QJsonObject jsonObj;
-
-                QString site_urlLukitus=MyUrl::getBaseUrl()+"/kortin_lukitus/"+id_card;
-                QNetworkRequest request((site_urlLukitus));
-
-                lukitusManager = new QNetworkAccessManager(this);
-                connect(lukitusManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(lukitusSlot(QNetworkReply*)));
-
-                replyLukitus = lukitusManager->put(request, QJsonDocument().toJson());
-
-                }
-                else
-                {
-                    ui->textIdUser->clear();
-                    ui->labelInfo->setText("PIN-koodi annettu kolme kertaa väärin\nsamalla kortilla\nKortti on nyt varmasti lukittu");
-                    qDebug()<<"pinCount: " << pinCount;
-
-                    QJsonObject jsonObj;
-
-                    QString site_urlLukitus=MyUrl::getBaseUrl()+"/kortin_lukitus/"+id_card;
-                    QNetworkRequest request((site_urlLukitus));
-
-                    lukitusManager = new QNetworkAccessManager(this);
-                    connect(lukitusManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(lukitusSlot(QNetworkReply*)));
-
-                    replyLukitus = lukitusManager->put(request, QJsonDocument().toJson());
-                    pinCount=0;
-                }
+                ui->textcard_pin->clear();
+                ui->labelInfo->setText("Käyttäjätunnus tai salasana ei täsmää");
             }
             else {
                 token = "Bearer "+response_data;
