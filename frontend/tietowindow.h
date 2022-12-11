@@ -30,17 +30,23 @@ private slots:
     void on_btnBack_clicked();
 private:
     void getTapahtuma();
+    void tableEditor(QJsonDocument);
+
     Ui::TietoWindow *ui;
-    QByteArray webToken;
+
     QNetworkAccessManager *infoManager;
     QNetworkAccessManager *tiliManager;
     QNetworkAccessManager *tapahtumaManager;
     QNetworkReply *reply;
-    QByteArray response_data;
-    QString myId_card;
-    QStandardItemModel *model;
-    void tableEditor(QJsonDocument);
 
+    QStandardItemModel *model;
+    QByteArray response_data;
+    QByteArray webToken;
+
+    QTimer * ajastin10;
+    QString myId_card;
+    QString id;
+    QString saldo;
 };
 
 #endif // TIETOWINDOW_H
