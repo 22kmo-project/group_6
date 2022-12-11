@@ -38,18 +38,23 @@ private:
 
     int aika10Sek = 0;
     void getTapahtuma();
+    void tableEditor(QJsonDocument);
+
     Ui::TietoWindow *ui;
-    QByteArray webToken;
+
     QNetworkAccessManager *infoManager;
     QNetworkAccessManager *tiliManager;
     QNetworkAccessManager *tapahtumaManager;
     QNetworkReply *reply;
+
+    QStandardItemModel *model;
     QByteArray response_data;
+    QByteArray webToken;
+
     QTimer * ajastin10;
     QString myId_card;
-    QStandardItemModel *model;
-    void tableEditor(QJsonDocument);
-
+    QString id;
+    QString saldo;
 };
 
 #endif // TIETOWINDOW_H

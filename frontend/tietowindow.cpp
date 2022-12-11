@@ -75,16 +75,14 @@ void TietoWindow::tiliSlot(QNetworkReply *reply)
      QByteArray response_data=reply->readAll();
      //qDebug()<<response_data;
      QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
-     QJsonArray json_array = json_doc.array();
-     QString tili="";
-     foreach (const QJsonValue &value, json_array) {
-         QJsonObject json_obj = value.toObject();
-         tili+=("Tilin id: "+json_obj["id_tili"].toString())+"\n"+
-         "Tilin saldo: "+QString::number(json_obj["account_balance"].toInt())+"€\r\n";
-         ui->textTilit->setText(tili);
+     QJsonObject json_obj = json_doc.object();
 
+     id=json_obj["id_tili"].toString();
+     saldo=QString::number(json_obj["account_balance"].toInt());
+     QString tiliInfo="Tilin id: "+id+"\r\n"+"Tilin saldo: "+saldo+"€\r\n";
 
-     }
+     ui->textTilit->setText(tiliInfo);
+
      reply->deleteLater();
      tiliManager->deleteLater();
 }
