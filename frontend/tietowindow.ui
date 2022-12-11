@@ -13,9 +13,6 @@
   <property name="windowTitle">
    <string>Omat tiedot</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">background-color: rgb(0, 0, 64)</string>
-  </property>
   <widget class="QPushButton" name="btnBack">
    <property name="geometry">
     <rect>
@@ -27,13 +24,8 @@
    </property>
    <property name="font">
     <font>
-     <family>Noto Mono</family>
      <pointsize>16</pointsize>
     </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(87, 87, 87);
-color: rgb(177, 177, 177);</string>
    </property>
    <property name="text">
     <string>Takaisin</string>
@@ -42,7 +34,7 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-30</x>
      <y>10</y>
      <width>231</width>
      <height>41</height>
@@ -50,12 +42,8 @@ color: rgb(177, 177, 177);</string>
    </property>
    <property name="font">
     <font>
-     <family>Noto Mono</family>
      <pointsize>22</pointsize>
     </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Omat tiedot</string>
@@ -75,7 +63,6 @@ color: rgb(177, 177, 177);</string>
    </property>
    <property name="font">
     <font>
-     <family>Noto Mono</family>
      <pointsize>20</pointsize>
     </font>
    </property>
@@ -86,7 +73,6 @@ color: rgb(177, 177, 177);</string>
     <string notr="true">QTextEdit {
   background: transparent;
   border: none;
-color: rgb(255, 255, 255);
 }</string>
    </property>
    <property name="readOnly">
@@ -99,7 +85,7 @@ color: rgb(255, 255, 255);
      <x>410</x>
      <y>90</y>
      <width>391</width>
-     <height>101</height>
+     <height>71</height>
     </rect>
    </property>
    <property name="font">
@@ -111,7 +97,6 @@ color: rgb(255, 255, 255);
     <string notr="true">QTextEdit {
   background: transparent;
   border: none;
-color: rgb(255, 255, 255);
 }</string>
    </property>
    <property name="readOnly">
@@ -129,12 +114,8 @@ color: rgb(255, 255, 255);
    </property>
    <property name="font">
     <font>
-     <family>Noto Mono</family>
-     <pointsize>18</pointsize>
+     <pointsize>22</pointsize>
     </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Tilin saldo ja viimeisimmät tilitapahtumat</string>
@@ -147,20 +128,13 @@ color: rgb(255, 255, 255);
    <property name="geometry">
     <rect>
      <x>410</x>
-     <y>200</y>
+     <y>160</y>
      <width>381</width>
      <height>151</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Noto Mono</family>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(87, 87, 87);
-color: rgb(177, 177, 177);</string>
+    <string notr="true"/>
    </property>
    <property name="sortingEnabled">
     <bool>false</bool>
