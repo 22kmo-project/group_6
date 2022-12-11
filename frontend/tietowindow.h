@@ -47,6 +47,8 @@ private:
     QByteArray response_data;
     QTimer * ajastin10;
     QString myId_card;
+    QString id;
+    QString saldo;
     QStandardItemModel *model;
     void tableEditor(QJsonDocument);
 

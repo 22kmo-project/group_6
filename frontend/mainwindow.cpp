@@ -75,11 +75,11 @@ void MainWindow::loginSlot(QNetworkReply *reply)
         else{
             if(test==0)
             {
-                if(pinCount<2)
+                if(pinCount < 2)
                 {
                 ui->textIdUser->clear();
-                ui->labelInfo->setText("Kortin tunnus ja PIN-koodi eivät täsmää\ntai kortti on lukittu");
-                pinCount++; //väärin annettu pin-koodi +1
+                ui->labelInfo->setText("Kortin tunnus ja PIN-koodi eivät täsmää tai kortti on lukittu");
+                pinCount++; //väärin annettu pin-koodi +1 (saman kortin(tunnus) ollessa sisässä)
                 qDebug()<<"pinCount: " << pinCount;
 
                 QJsonObject jsonObj;
@@ -96,10 +96,10 @@ void MainWindow::loginSlot(QNetworkReply *reply)
                 else
                 {
                     ui->textIdUser->clear();
-                    ui->labelInfo->setText("PIN-koodi annettu kolme kertaa väärin samalla kortilla\nKortti on nyt varmasti lukittu");
+                    ui->labelInfo->setText("PIN-koodi annettu kolme kertaa väärin\nsamalla kortilla\nKortti on nyt varmasti lukittu");
                     qDebug()<<"pinCount: " << pinCount;
 
-                    /*QJsonObject jsonObj;
+                    QJsonObject jsonObj;
 
                     QString site_urlLukitus=MyUrl::getBaseUrl()+"/kortin_lukitus/"+id_card;
                     QNetworkRequest request((site_urlLukitus));
@@ -107,7 +107,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
                     lukitusManager = new QNetworkAccessManager(this);
                     connect(lukitusManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(lukitusSlot(QNetworkReply*)));
 
-                    replyLukitus = lukitusManager->put(request, QJsonDocument().toJson());*/
+                    replyLukitus = lukitusManager->put(request, QJsonDocument().toJson());
                     pinCount=0;
                 }
             }
