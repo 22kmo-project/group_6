@@ -30,38 +30,32 @@ void nosto::on_btnconfirm_clicked()
             amount=400;
             withdraw(storeBalance, amount);
 
-            QMessageBox::information (this, "Nosto onnistui!", "Tilitäsi nostettiin 400 euroa.");
         }
         if(ui->box200->isChecked()) {
             amount=200;
             withdraw(storeBalance, amount);
 
-            QMessageBox::information (this, "Nosto onnistui!", "Tilitäsi nostettiin 200 euroa.");
         }
         if(ui->box100->isChecked()) {
             amount=100;
             withdraw(storeBalance, amount);
 
-            QMessageBox::information (this, "Nosto onnistui!", "Tilitäsi nostettiin 100 euroa.");
         }
         if(ui->box60->isChecked()) {
             amount=60;
             withdraw(storeBalance, amount);
 
-            QMessageBox::information (this, "Nosto onnistui!", "Tilitäsi nostettiin 60 euroa.");
         }
         if(ui->box40->isChecked()) {
             amount=40;
             withdraw(storeBalance, amount);
 
-            QMessageBox::information (this, "Nosto onnistui!", "Tilitäsi nostettiin 40 euroa.");
         }
         if (ui->box20->isChecked()) {
             amount=20;
             withdraw(storeBalance, amount);
-
-            QMessageBox::information (this, "Nosto onnistui!", "Tilitäsi nostettiin 20 euroa.");
         }
+
         QJsonObject jsonObjUpdate;
         jsonObjUpdate.insert("account_balance",account_balance);
         QString site_url=+"http://localhost:3000/tili/1234";
@@ -103,15 +97,40 @@ void nosto::updateBalanceSlot(QNetworkReply *reply)
 
 void nosto::withdraw(double storeBalance, double amount)
 {
-    if(amount - storeBalance < 0)
+    if(amount - storeBalance > 0)
     {
+        QMessageBox::information (this, "Nosto epäonnistui!", "Tilillä ei ole tarpeeksi katetta.");}
+
+    else if(amount - storeBalance <= 0 && ui->box20->isChecked()){
     storeBalance = storeBalance - amount;
     account_balance = QString::number(storeBalance);
-}
-    else
-{
-    QMessageBox::information (this, "Nosto epäonnistui!", "Tilillä ei ole tarpeeksi katetta.");
-    }
+    QMessageBox::information (this, "Nosto onnistui!", "Tililtäsi nostettiin 20 euroa.");}
+
+    else if(amount - storeBalance <= 0 && ui->box40->isChecked()){
+    storeBalance = storeBalance - amount;
+    account_balance = QString::number(storeBalance);
+    QMessageBox::information (this, "Nosto onnistui!", "Tililtäsi nostettiin 40 euroa.");}
+
+    else if(amount - storeBalance <= 0 && ui->box60->isChecked()){
+    storeBalance = storeBalance - amount;
+    account_balance = QString::number(storeBalance);
+    QMessageBox::information (this, "Nosto onnistui!", "Tililtäsi nostettiin 60 euroa.");}
+
+    else if(amount - storeBalance <= 0  && ui->box100->isChecked()){
+    storeBalance = storeBalance - amount;
+    account_balance = QString::number(storeBalance);
+    QMessageBox::information (this, "Nosto onnistui!", "Tililtäsi nostettiin 100 euroa.");}
+
+    else if(amount - storeBalance <= 0 && ui->box200->isChecked()){
+    storeBalance = storeBalance - amount;
+    account_balance = QString::number(storeBalance);
+    QMessageBox::information (this, "Nosto onnistui!", "Tililtäsi nostettiin 200 euroa.");}
+
+    else if(amount - storeBalance <= 0 && ui->box400->isChecked()){
+    storeBalance = storeBalance - amount;
+    account_balance = QString::number(storeBalance);
+    QMessageBox::information (this, "Nosto onnistui!", "Tililtäsi nostettiin 400 euroa.");}
+
 }
 
 void nosto::on_btnsum_clicked()

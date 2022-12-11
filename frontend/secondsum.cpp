@@ -44,7 +44,8 @@ void SecondSum::on_btnconfirm_clicked()
         connect(updateBalanceManager, SIGNAL(finished(QNetworkReply*)),
         this, SLOT(updateBalanceSlot(QNetworkReply*)));
         reply = updateBalanceManager->put(request, QJsonDocument(jsonObjUpdate).toJson());
-this->close();
+
+        this->close();
     }
 
 }
