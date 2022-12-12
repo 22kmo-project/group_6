@@ -89,6 +89,7 @@ private:
     QString id;
     QString nostoSumma;
 
+
     void getBalance();
 
     double storeBalance;

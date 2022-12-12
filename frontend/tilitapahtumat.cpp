@@ -107,7 +107,7 @@ void Tilitapahtumat::tableEditor(QJsonDocument doc)
                 row++;
             }
             ui->table_Tilitapahtumat->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-            ui->table_Tilitapahtumat->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+            ui->table_Tilitapahtumat->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
             ui->table_Tilitapahtumat->resizeRowsToContents();
             ui->table_Tilitapahtumat->setEditTriggers(QAbstractItemView::NoEditTriggers);
   }

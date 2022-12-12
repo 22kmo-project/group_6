@@ -135,7 +135,16 @@ void nosto::on_btnconfirm_clicked()
     resetKaikkiAjastimet();
     //withdraw(storeBalance, amount);
     qDebug()<<"account_balance: "<< account_balance;
-    if (storeBalance - amount >= 0)
+    int amount2 = int(amount);
+
+    if (amount2%10 != 0)
+    {
+        ui->labelSumma->setText("Tapahtuma hylätty, tarkista summa.");
+        ajastin4->start(1000);
+        amount = 0;
+    }
+
+    else if (storeBalance - amount >= 0)
     {
     qDebug()<<"ACCOUNT BALANCE: "<<account_balance;
     QJsonObject jsonObjUpdate;
@@ -291,9 +300,6 @@ void nosto::on_btnback_clicked()
     qDebug()<<ui->lineSumma;
     qDebug()<<amount;
 }
-
-
-
 
 void nosto::on_btnPeruuta_clicked()
 {
