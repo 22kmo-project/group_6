@@ -193,7 +193,6 @@ void nosto::ajastin10Slot()
         ajastin10->stop();
         close();
         delete ajastin10;
-        delete ui;
     }
     //qDebug()<< "10 sek ajastin: " << aika10Sek;
 }
@@ -206,8 +205,8 @@ void nosto::ajastin4Slot()
         ajastin4->stop();
         close();
         delete ajastin4;
-        delete ui;
     }
+    qDebug()<<"ajastin4: "<< aika4Sek;
 }
 
 void nosto::updateBalanceSlot(QNetworkReply *reply)
@@ -351,6 +350,7 @@ void nosto::amountSelected()
 
 void nosto::on_btnMuuSumma_clicked()
 {
+    resetKaikkiAjastimet();
     ui->widgetNP->setVisible(true);
 
     ui->btnback->setVisible(false);
@@ -448,12 +448,14 @@ void nosto::on_btnNP_stop_clicked()
 
     ui->lineSumma->clear();
     ui->lineSumma->setVisible(false);
+    qDebug()<<"ajastin4: "<< aika4Sek;
 }
 void nosto::on_btnNP_clear_clicked()
 {
     resetKaikkiAjastimet();
     ui->lineSumma->clear();
     amount = 0;
+    qDebug()<<"ajastin4: "<< aika4Sek;
 }
 void nosto::on_btnNP_ok_clicked()
 {
@@ -472,6 +474,7 @@ void nosto::on_btnNP_ok_clicked()
     ui->btnPeruuta->setVisible(true);
     ui->widgetNP->setVisible(false);
     ui->lineSumma->setVisible(false);
+    qDebug()<<"ajastin4: "<< aika4Sek;
 
 }
 
