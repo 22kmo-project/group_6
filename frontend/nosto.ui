@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>931</width>
-    <height>724</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
   <widget class="QPushButton" name="btnback">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>500</y>
+     <x>30</x>
+     <y>1000</y>
      <width>121</width>
      <height>61</height>
     </rect>
@@ -42,9 +42,9 @@ color: rgb(177, 177, 177);</string>
   <widget class="QPushButton" name="btnconfirm">
    <property name="geometry">
     <rect>
-     <x>780</x>
-     <y>500</y>
-     <width>141</width>
+     <x>1160</x>
+     <y>630</y>
+     <width>121</width>
      <height>61</height>
     </rect>
    </property>
@@ -65,8 +65,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="txtNosto">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>20</y>
+     <x>810</x>
+     <y>110</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -90,8 +90,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QPushButton" name="btn20">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>130</y>
+     <x>630</x>
+     <y>260</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -107,8 +107,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="label_20">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>130</y>
+     <x>690</x>
+     <y>260</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -132,8 +132,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QPushButton" name="btnPeruuta">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>500</y>
+     <x>630</x>
+     <y>630</y>
      <width>121</width>
      <height>61</height>
     </rect>
@@ -152,39 +152,11 @@ color: rgb(177, 177, 177);</string>
     <string>Peruuta</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelSumma">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>80</y>
-     <width>521</width>
-     <height>301</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Noto Mono</family>
-     <pointsize>20</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="wordWrap">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btn40">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>190</y>
+     <x>630</x>
+     <y>320</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -200,8 +172,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QPushButton" name="btn60">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>250</y>
+     <x>630</x>
+     <y>380</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -217,8 +189,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QPushButton" name="btn100">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>130</y>
+     <x>1200</x>
+     <y>260</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -234,8 +206,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QPushButton" name="btn200">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>190</y>
+     <x>1200</x>
+     <y>320</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -251,8 +223,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QPushButton" name="btnMuuSumma">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>250</y>
+     <x>1200</x>
+     <y>380</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -268,8 +240,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="label_40">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>190</y>
+     <x>690</x>
+     <y>320</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -293,8 +265,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="label_60">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>250</y>
+     <x>690</x>
+     <y>380</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -318,8 +290,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="label_100">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>130</y>
+     <x>1140</x>
+     <y>260</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -343,8 +315,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="label_200">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>190</y>
+     <x>1140</x>
+     <y>320</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -368,8 +340,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="label_muuSumma">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>250</y>
+     <x>1100</x>
+     <y>380</y>
      <width>121</width>
      <height>51</height>
     </rect>
@@ -393,8 +365,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLineEdit" name="lineSumma">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>120</y>
+     <x>850</x>
+     <y>240</y>
      <width>201</width>
      <height>41</height>
     </rect>
@@ -412,8 +384,8 @@ color: rgb(177, 177, 177);</string>
   <widget class="QWidget" name="widgetNP" native="true">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>260</y>
+     <x>764</x>
+     <y>364</y>
      <width>391</width>
      <height>351</height>
     </rect>
@@ -867,6 +839,34 @@ color: rgb(177, 177, 177);</string>
      <string>3</string>
     </property>
    </widget>
+  </widget>
+  <widget class="QLabel" name="labelSumma">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>170</y>
+     <width>521</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Mono</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
  </widget>
  <resources/>

@@ -58,7 +58,7 @@ AsiakasWindow::~AsiakasWindow()
 void AsiakasWindow::on_btnTapahtumat_clicked()
 {
     ObjectTilitapahtuma=new Tilitapahtumat(myId_card, webToken);
-    ObjectTilitapahtuma->show();
+    ObjectTilitapahtuma->showFullScreen();
     connect(ObjectTilitapahtuma, SIGNAL(resetAjastin30()), this, SLOT(resetAjastimetSlot()));
     resetAjastimetSlot();
 }
@@ -66,7 +66,7 @@ void AsiakasWindow::on_btnTapahtumat_clicked()
 void AsiakasWindow::on_btnTiedot_clicked()
 {
     ObjectTietoWindow=new TietoWindow(myId_card, webToken);
-    ObjectTietoWindow->show();
+    ObjectTietoWindow->showFullScreen();
     connect(ObjectTietoWindow, SIGNAL(resetAjastin30()), this, SLOT(resetAjastimetSlot()));
     resetAjastimetSlot();
 }
@@ -74,7 +74,7 @@ void AsiakasWindow::on_btnTiedot_clicked()
 void AsiakasWindow::on_btnNosto_clicked()
 {
     ObjectNosto = new nosto(myId_card, webToken);
-    ObjectNosto->show();
+    ObjectNosto->showFullScreen();
     connect(ObjectNosto, SIGNAL(resetAjastin30()), this, SLOT(resetAjastimetSlot()));
     resetAjastimetSlot();
 }

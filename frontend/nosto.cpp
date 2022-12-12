@@ -60,8 +60,6 @@ nosto::~nosto()
 {
     delete ui;
     amount=0;
-    delete ObjectSecondSum;
-    ObjectSecondSum=nullptr;
 }
 
 void nosto::resetKaikkiAjastimet()
@@ -236,13 +234,6 @@ void nosto::withdraw(double storeBalance, double amount)
     qDebug()<<"amount: "<< amount;
     qDebug()<<"Store balance: "<< storeBalance;
 
-}
-
-void nosto::on_btnsum_clicked()
-{
-    resetKaikkiAjastimet();
-    ObjectSecondSum=new SecondSum(myId_card, webToken);
-    ObjectSecondSum->show();
 }
 
 void nosto::getBalance()

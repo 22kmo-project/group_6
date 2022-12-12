@@ -8,7 +8,7 @@
 #include <QtNetwork>
 #include <string.h>
 
-#include "secondsum.h"
+
 
 namespace Ui {
 class nosto;
@@ -29,7 +29,7 @@ signals:
 private slots:
 
     void on_btnconfirm_clicked();
-    void on_btnsum_clicked();
+
 
     void on_btnback_clicked();
     void updateBalanceSlot (QNetworkReply *Reply);
@@ -75,7 +75,6 @@ private:
     int aika4Sek = 0;
     int aika10Sek = 0;
     Ui::nosto *ui;
-    SecondSum *ObjectSecondSum;
     QByteArray webToken;
     QString myId_card;
     QByteArray response_data;

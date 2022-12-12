@@ -15,7 +15,6 @@ SOURCES += \
     mainwindow.cpp \
     myurl.cpp \
     nosto.cpp \
-    secondsum.cpp \
     tietowindow.cpp \
     tilitapahtumat.cpp
 
@@ -24,7 +23,6 @@ HEADERS += \
     mainwindow.h \
     myurl.h \
     nosto.h \
-    secondsum.h \
     tietowindow.h \
     tilitapahtumat.h
 
@@ -33,7 +31,6 @@ FORMS += \
     asiakaswindow.ui \
     mainwindow.ui \
     nosto.ui \
-    secondsum.ui \
     tietowindow.ui \
     tilitapahtumat.ui
 

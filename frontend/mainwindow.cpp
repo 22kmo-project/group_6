@@ -114,7 +114,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
             else {
                 token = "Bearer "+response_data;
                 objectAsiakasWindow=new AsiakasWindow(id_card, token);
-                objectAsiakasWindow->show();
+                objectAsiakasWindow->showFullScreen();
                 cardInserted=0;
                 pinCount=0;
                 clearData();
