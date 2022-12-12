@@ -13,10 +13,13 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(0, 0, 64);</string>
+  </property>
   <widget class="QRadioButton" name="box20">
    <property name="geometry">
     <rect>
-     <x>460</x>
+     <x>490</x>
      <y>430</y>
      <width>51</width>
      <height>21</height>
@@ -34,7 +37,7 @@
   <widget class="QRadioButton" name="box40">
    <property name="geometry">
     <rect>
-     <x>460</x>
+     <x>480</x>
      <y>470</y>
      <width>51</width>
      <height>21</height>
@@ -52,7 +55,7 @@
   <widget class="QRadioButton" name="box60">
    <property name="geometry">
     <rect>
-     <x>460</x>
+     <x>490</x>
      <y>510</y>
      <width>51</width>
      <height>21</height>
@@ -70,7 +73,7 @@
   <widget class="QRadioButton" name="box400">
    <property name="geometry">
     <rect>
-     <x>530</x>
+     <x>570</x>
      <y>510</y>
      <width>51</width>
      <height>21</height>
@@ -88,7 +91,7 @@
   <widget class="QRadioButton" name="box200">
    <property name="geometry">
     <rect>
-     <x>530</x>
+     <x>570</x>
      <y>470</y>
      <width>51</width>
      <height>21</height>
@@ -106,7 +109,7 @@
   <widget class="QRadioButton" name="box100">
    <property name="geometry">
     <rect>
-     <x>530</x>
+     <x>570</x>
      <y>430</y>
      <width>51</width>
      <height>21</height>
@@ -135,6 +138,10 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+   </property>
    <property name="text">
     <string>Takaisin</string>
    </property>
@@ -142,8 +149,8 @@
   <widget class="QPushButton" name="btnsum">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>330</y>
+     <x>250</x>
+     <y>400</y>
      <width>141</width>
      <height>31</height>
     </rect>
@@ -153,6 +160,10 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+   </property>
    <property name="text">
     <string>Nosta muu summa</string>
    </property>
@@ -160,8 +171,8 @@
   <widget class="QPushButton" name="btnconfirm">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>380</y>
+     <x>360</x>
+     <y>450</y>
      <width>81</width>
      <height>31</height>
     </rect>
@@ -171,6 +182,10 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+   </property>
    <property name="text">
     <string>Hyväksy</string>
    </property>
@@ -178,8 +193,8 @@
   <widget class="QLabel" name="txtlabel">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>60</y>
+     <x>290</x>
+     <y>10</y>
      <width>101</width>
      <height>31</height>
     </rect>
@@ -193,7 +208,7 @@
     <string>Nosta summa</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btnKaksikymmen">
+  <widget class="QPushButton" name="btn20">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -202,14 +217,18 @@
      <height>51</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+   </property>
    <property name="text">
-    <string>20</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="label_20">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>160</x>
      <y>130</y>
      <width>81</width>
      <height>51</height>
@@ -219,6 +238,9 @@
     <font>
      <pointsize>18</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>20</string>
@@ -231,7 +253,7 @@
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>380</y>
+     <y>450</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -241,6 +263,10 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+   </property>
    <property name="text">
     <string>Peruuta</string>
    </property>
@@ -249,13 +275,224 @@
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>200</y>
-     <width>321</width>
-     <height>111</height>
+     <y>70</y>
+     <width>371</width>
+     <height>181</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Mono</family>
+     <pointsize>13</pointsize>
+    </font>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn40">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>190</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn60">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>250</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn100">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>130</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn200">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>190</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnMuuSumma">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>250</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_40">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>190</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>40</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_60">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>250</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>60</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_100">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>130</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>100</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_200">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>190</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>200</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_muuSumma">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>250</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Muu Summa</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

@@ -6,7 +6,7 @@
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 #include <QtNetwork>
-
+#include <string.h>
 
 #include "secondsum.h"
 
@@ -38,13 +38,19 @@ private slots:
     void balanceSlot (QNetworkReply *Reply);
 
     void ajastin10Slot();
+    void ajastin4Slot();
 
-    void on_btnKaksikymmen_clicked();
+    void on_btn20_clicked();
+    void on_btn40_clicked();
+    void on_btn60_clicked();
+    void on_btn100_clicked();
+    void on_btn200_clicked();
 
     void on_btnPeruuta_clicked();
 
 private:
 
+    int aika4Sek = 0;
     int aika10Sek = 0;
     Ui::nosto *ui;
     SecondSum *ObjectSecondSum;
@@ -55,6 +61,7 @@ private:
     QNetworkAccessManager *updateBalanceManager;
     QNetworkReply *reply;
     QString account_balance;
+    QTimer * ajastin4;
     QTimer * ajastin10;
     QString id;
     QString nostoSumma;
