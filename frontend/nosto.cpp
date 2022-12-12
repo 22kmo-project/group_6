@@ -135,7 +135,7 @@ void nosto::on_btnconfirm_clicked()
     qDebug()<<"account_balance: "<< account_balance;
     int amount2 = int(amount);
 
-    if (amount2%10 != 0)
+    if (amount2%10 != 0 || amount2 > 1000)
     {
         ui->labelSumma->setText("Tapahtuma hylätty, tarkista summa.");
         ajastin4->start(1000);

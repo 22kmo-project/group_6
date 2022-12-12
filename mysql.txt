@@ -1,0 +1,3 @@
+CREATE USER 'banksimul'@'127.0.0.1'
+IDENTIFIED WITH mysql_native_password BY 'netpass';
+GRANT ALL on banksimul.* to 'banksimul'@'127.0.0.1';
