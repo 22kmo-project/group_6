@@ -79,7 +79,7 @@ void TietoWindow::tiliSlot(QNetworkReply *reply)
      QJsonObject json_obj = json_doc.object();
 
          id=json_obj["id_tili"].toString();
-         saldo=QString::number(json_obj["account_balance"].toDouble());
+         saldo=QString::number(json_obj["account_balance"].toDouble(), 'f', 2);
          QString tiliInfo="Tilin id: "+id+"\r\n"+"Tilin saldo: "+saldo+"€\r\n";
 
          ui->textTilit->setText(tiliInfo);
