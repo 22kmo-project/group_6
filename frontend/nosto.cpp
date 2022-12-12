@@ -83,6 +83,21 @@ void nosto::on_btn20_clicked()
 
 void nosto::on_btn40_clicked()
 {
+    ui->btn20->setVisible(false);
+    ui->btn40->setVisible(false);
+    ui->btn60->setVisible(false);
+    ui->btn100->setVisible(false);
+    ui->btn200->setVisible(false);
+    ui->btn200->setVisible(false);
+    ui->btnMuuSumma->setVisible(false);
+    ui->label_20->setVisible(false);
+    ui->label_40->setVisible(false);
+    ui->label_60->setVisible(false);
+    ui->label_100->setVisible(false);
+    ui->label_200->setVisible(false);
+    ui->label_muuSumma->setVisible(false);
+
+    ui->labelSumma->setVisible(true);
     resetKaikkiAjastimet();
     amount=40;
     ui->btnconfirm->setVisible(true);
@@ -94,6 +109,21 @@ void nosto::on_btn40_clicked()
 
 void nosto::on_btn60_clicked()
 {
+    ui->btn20->setVisible(false);
+    ui->btn40->setVisible(false);
+    ui->btn60->setVisible(false);
+    ui->btn100->setVisible(false);
+    ui->btn200->setVisible(false);
+    ui->btn200->setVisible(false);
+    ui->btnMuuSumma->setVisible(false);
+    ui->label_20->setVisible(false);
+    ui->label_40->setVisible(false);
+    ui->label_60->setVisible(false);
+    ui->label_100->setVisible(false);
+    ui->label_200->setVisible(false);
+    ui->label_muuSumma->setVisible(false);
+
+    ui->labelSumma->setVisible(true);
     resetKaikkiAjastimet();
     amount=60;
     ui->btnconfirm->setVisible(true);
@@ -105,6 +135,21 @@ void nosto::on_btn60_clicked()
 
 void nosto::on_btn100_clicked()
 {
+    ui->btn20->setVisible(false);
+    ui->btn40->setVisible(false);
+    ui->btn60->setVisible(false);
+    ui->btn100->setVisible(false);
+    ui->btn200->setVisible(false);
+    ui->btn200->setVisible(false);
+    ui->btnMuuSumma->setVisible(false);
+    ui->label_20->setVisible(false);
+    ui->label_40->setVisible(false);
+    ui->label_60->setVisible(false);
+    ui->label_100->setVisible(false);
+    ui->label_200->setVisible(false);
+    ui->label_muuSumma->setVisible(false);
+
+    ui->labelSumma->setVisible(true);
     resetKaikkiAjastimet();
     amount=100;
     ui->btnconfirm->setVisible(true);
@@ -116,6 +161,21 @@ void nosto::on_btn100_clicked()
 
 void nosto::on_btn200_clicked()
 {
+    ui->btn20->setVisible(false);
+    ui->btn40->setVisible(false);
+    ui->btn60->setVisible(false);
+    ui->btn100->setVisible(false);
+    ui->btn200->setVisible(false);
+    ui->btn200->setVisible(false);
+    ui->btnMuuSumma->setVisible(false);
+    ui->label_20->setVisible(false);
+    ui->label_40->setVisible(false);
+    ui->label_60->setVisible(false);
+    ui->label_100->setVisible(false);
+    ui->label_200->setVisible(false);
+    ui->label_muuSumma->setVisible(false);
+
+    ui->labelSumma->setVisible(true);
     resetKaikkiAjastimet();
     amount=200;
     ui->btnconfirm->setVisible(true);
@@ -136,7 +196,7 @@ void nosto::on_btnconfirm_clicked()
     QJsonObject jsonObjUpdate;
 
     jsonObjUpdate.insert("account_balance",account_balance);
-    QString site_url=+"http://localhost:3000/tili/"+id;
+    QString site_url=MyUrl::getBaseUrl()+"/tili/"+id;
     QNetworkRequest request((site_url));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
@@ -150,6 +210,8 @@ void nosto::on_btnconfirm_clicked()
     nostoSumma = QString::number(amount);
     ui->labelSumma->setText("Tililtä nostettu "+nostoSumma+" euroa.");
     ajastin4->start(1000);
+
+    createTransaction();
     }
     else
     {
@@ -273,7 +335,8 @@ void nosto::on_btnsum_clicked()
 
 void nosto::getBalance()
 {
-    QString site_url="http://localhost:3000/tilitiedot/"+myId_card;
+    QString site_url=MyUrl::getBaseUrl()+"/tilitiedot/"+myId_card;
+    qDebug()<<"URL: "+site_url;
             QNetworkRequest request((site_url));
             request.setRawHeader(QByteArray("Authorization"),(webToken));
             balanceManager = new QNetworkAccessManager(this);
@@ -281,8 +344,44 @@ void nosto::getBalance()
             reply = balanceManager->get(request);
 }
 
+void nosto::createTransaction()
+{
+    QDateTime currentTime = QDateTime::currentDateTime();
+    QDateTime updatedTime = currentTime.addSecs(2 * 60 * 60);
+    QString timeString = updatedTime.toString("yyyy-MM-dd hh:mm:ss");
+
+    qDebug() << timeString;
+    //luodaan tilitapahtuma
+    QJsonObject jsonObjPost;
+    jsonObjPost.insert("id_tili", id);
+    jsonObjPost.insert("date", timeString);
+    jsonObjPost.insert("transaction", "Nosto");
+    jsonObjPost.insert("amount", amount);
+    jsonObjPost.insert("id_card", myId_card);
+
+
+    QString site_url=MyUrl::getBaseUrl()+"/tilitapahtuma/";
+        QNetworkRequest requestPost((site_url));
+        requestPost.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        requestPost.setRawHeader(QByteArray("Authorization"),(webToken));
+
+    createTransactionManager=new QNetworkAccessManager(this);
+    connect(createTransactionManager, SIGNAL(finished(QNetworkReply*)),
+    this, SLOT(createTransactionSlot(QNetworkReply*)));
+    reply = createTransactionManager->post(requestPost, QJsonDocument(jsonObjPost).toJson());
+}
+
+void nosto::createTransactionSlot(QNetworkReply *reply)
+{
+    response_data=reply->readAll();
+    qDebug()<<response_data;
+    reply->deleteLater();
+    createTransactionManager->deleteLater();
+}
+
 void nosto::on_btnback_clicked()
 {
+
     ajastin4->stop();
     ajastin10->stop();
     resetKaikkiAjastimet();
@@ -297,5 +396,21 @@ void nosto::on_btnPeruuta_clicked()
     resetKaikkiAjastimet();
     ui->btnPeruuta->setVisible(false);
     ui->btnconfirm->setVisible(false);
+    ui->btn20->setVisible(true);
+    ui->btn40->setVisible(true);
+    ui->btn60->setVisible(true);
+    ui->btn100->setVisible(true);
+    ui->btn200->setVisible(true);
+    ui->btn200->setVisible(true);
+    ui->btnMuuSumma->setVisible(true);
+    ui->label_20->setVisible(true);
+    ui->label_40->setVisible(true);
+    ui->label_60->setVisible(true);
+    ui->label_100->setVisible(true);
+    ui->label_200->setVisible(true);
+    ui->label_muuSumma->setVisible(true);
+
+    ui->labelSumma->setVisible(false);
+
 }
 

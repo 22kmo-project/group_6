@@ -34,6 +34,9 @@ private slots:
     void on_btnback_clicked();
     void updateBalanceSlot (QNetworkReply *Reply);
 
+    void createTransaction();
+    void createTransactionSlot (QNetworkReply *Reply);
+
     void withdraw(double storeBalance, double amount);
     void balanceSlot (QNetworkReply *Reply);
 
@@ -58,6 +61,7 @@ private:
     QString myId_card;
     QByteArray response_data;
     QNetworkAccessManager *balanceManager;
+    QNetworkAccessManager *createTransactionManager;
     QNetworkAccessManager *updateBalanceManager;
     QNetworkReply *reply;
     QString account_balance;
