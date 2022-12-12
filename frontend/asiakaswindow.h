@@ -3,6 +3,7 @@
 
 #include "tietowindow.h"
 #include "tilitapahtumat.h"
+#include "nosto.h"
 
 #include <QDialog>
 #include <QNetworkAccessManager>
@@ -33,6 +34,7 @@ private slots:
     void nimiSlot (QNetworkReply *reply);
     void on_btnTiedot_clicked();
     void on_btnTapahtumat_clicked();
+    void on_btnNosto_clicked();
 
     void on_btnLogout_clicked();
 
@@ -48,6 +50,7 @@ private:
     QNetworkReply *reply;
     QByteArray response_data;
     Tilitapahtumat *ObjectTilitapahtuma;
+    nosto *ObjectNosto;
     void logout();
     int aika30Sek=0;
 

@@ -80,7 +80,8 @@ void TietoWindow::tiliSlot(QNetworkReply *reply)
 
          id=json_obj["id_tili"].toString();
          saldo=QString::number(json_obj["account_balance"].toDouble(), 'f', 2);
-         QString tiliInfo="Tilin id: "+id+"\r\n"+"Tilin saldo: "+saldo+"€\r\n";
+
+         QString tiliInfo="Tilinumero: "+id+"\r\n"+"Saldo: "+saldo+"€\r\n";
 
          ui->textTilit->setText(tiliInfo);
 
@@ -183,7 +184,6 @@ void TietoWindow::ajastin10Slot()
         ajastin10->stop();
         close();
         delete ajastin10;
-        delete ui;
     }
     qDebug()<< "10 sek ajastin: " << aika10Sek;
 }

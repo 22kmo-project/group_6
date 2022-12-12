@@ -107,9 +107,8 @@ void Tilitapahtumat::tableEditor(QJsonDocument doc)
                 row++;
             }
             ui->table_Tilitapahtumat->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-            ui->table_Tilitapahtumat->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+            ui->table_Tilitapahtumat->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
             ui->table_Tilitapahtumat->resizeRowsToContents();
-            ui->table_Tilitapahtumat->scrollToBottom();
             ui->table_Tilitapahtumat->setEditTriggers(QAbstractItemView::NoEditTriggers);
   }
 
@@ -128,7 +127,6 @@ void Tilitapahtumat::ajastin10Slot()
         ajastin10->stop();
         close();
         delete ajastin10;
-        delete ui;
     }
     qDebug()<< "10 sek ajastin: " << aika10Sek;
 }
