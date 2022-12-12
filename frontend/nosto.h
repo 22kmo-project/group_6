@@ -51,6 +51,25 @@ private slots:
 
     void on_btnPeruuta_clicked();
 
+    void amountSelected();
+
+    void on_btnMuuSumma_clicked();
+
+    void on_btnNP_1_clicked();
+    void on_btnNP_2_clicked();
+    void on_btnNP_3_clicked();
+    void on_btnNP_4_clicked();
+    void on_btnNP_5_clicked();
+    void on_btnNP_6_clicked();
+    void on_btnNP_7_clicked();
+    void on_btnNP_8_clicked();
+    void on_btnNP_9_clicked();
+    void on_btnNP_0_clicked();
+
+    void on_btnNP_stop_clicked();
+    void on_btnNP_clear_clicked();
+    void on_btnNP_ok_clicked();
+
 private:
 
     int aika4Sek = 0;

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>652</width>
-    <height>549</height>
+    <width>931</width>
+    <height>724</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,126 +16,19 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(0, 0, 64);</string>
   </property>
-  <widget class="QRadioButton" name="box20">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>430</y>
-     <width>51</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>20</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="box40">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>470</y>
-     <width>51</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>40</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="box60">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>510</y>
-     <width>51</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>60</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="box400">
-   <property name="geometry">
-    <rect>
-     <x>570</x>
-     <y>510</y>
-     <width>51</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>400</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="box200">
-   <property name="geometry">
-    <rect>
-     <x>570</x>
-     <y>470</y>
-     <width>51</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>200</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="box100">
-   <property name="geometry">
-    <rect>
-     <x>570</x>
-     <y>430</y>
-     <width>51</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>100</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btnback">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>500</y>
-     <width>91</width>
-     <height>31</height>
+     <width>121</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <family>Noto Mono</family>
+     <pointsize>16</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -146,40 +39,19 @@ color: rgb(177, 177, 177);</string>
     <string>Takaisin</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btnsum">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>400</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(87, 87, 87);
-color: rgb(177, 177, 177);</string>
-   </property>
-   <property name="text">
-    <string>Nosta muu summa</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btnconfirm">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>450</y>
-     <width>81</width>
-     <height>31</height>
+     <x>780</x>
+     <y>500</y>
+     <width>141</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <family>Noto Mono</family>
+     <pointsize>16</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -190,31 +62,35 @@ color: rgb(177, 177, 177);</string>
     <string>Hyväksy</string>
    </property>
   </widget>
-  <widget class="QLabel" name="txtlabel">
+  <widget class="QLabel" name="txtNosto">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>10</y>
-     <width>101</width>
-     <height>31</height>
+     <x>320</x>
+     <y>20</y>
+     <width>281</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <family>Noto Mono</family>
+     <pointsize>17</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>Nosta summa</string>
+    <string>Valitse summa</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QPushButton" name="btn20">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>140</x>
      <y>130</y>
      <width>81</width>
      <height>51</height>
@@ -231,7 +107,7 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="label_20">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>230</x>
      <y>130</y>
      <width>81</width>
      <height>51</height>
@@ -239,6 +115,7 @@ color: rgb(177, 177, 177);</string>
    </property>
    <property name="font">
     <font>
+     <family>Noto Mono</family>
      <pointsize>18</pointsize>
     </font>
    </property>
@@ -255,15 +132,16 @@ color: rgb(177, 177, 177);</string>
   <widget class="QPushButton" name="btnPeruuta">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>450</y>
-     <width>91</width>
-     <height>31</height>
+     <x>10</x>
+     <y>500</y>
+     <width>121</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <family>Noto Mono</family>
+     <pointsize>16</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -277,16 +155,16 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="labelSumma">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>50</y>
-     <width>341</width>
-     <height>71</height>
+     <x>200</x>
+     <y>80</y>
+     <width>521</width>
+     <height>301</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Noto Mono</family>
-     <pointsize>13</pointsize>
+     <pointsize>20</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -295,11 +173,17 @@ color: rgb(177, 177, 177);</string>
    <property name="text">
     <string/>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QPushButton" name="btn40">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>140</x>
      <y>190</y>
      <width>81</width>
      <height>51</height>
@@ -316,7 +200,7 @@ color: rgb(177, 177, 177);</string>
   <widget class="QPushButton" name="btn60">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>140</x>
      <y>250</y>
      <width>81</width>
      <height>51</height>
@@ -333,7 +217,7 @@ color: rgb(177, 177, 177);</string>
   <widget class="QPushButton" name="btn100">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>680</x>
      <y>130</y>
      <width>81</width>
      <height>51</height>
@@ -350,7 +234,7 @@ color: rgb(177, 177, 177);</string>
   <widget class="QPushButton" name="btn200">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>680</x>
      <y>190</y>
      <width>81</width>
      <height>51</height>
@@ -367,7 +251,7 @@ color: rgb(177, 177, 177);</string>
   <widget class="QPushButton" name="btnMuuSumma">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>680</x>
      <y>250</y>
      <width>81</width>
      <height>51</height>
@@ -384,7 +268,7 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="label_40">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>230</x>
      <y>190</y>
      <width>81</width>
      <height>51</height>
@@ -392,6 +276,7 @@ color: rgb(177, 177, 177);</string>
    </property>
    <property name="font">
     <font>
+     <family>Noto Mono</family>
      <pointsize>18</pointsize>
     </font>
    </property>
@@ -408,7 +293,7 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="label_60">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>220</x>
      <y>250</y>
      <width>81</width>
      <height>51</height>
@@ -416,6 +301,7 @@ color: rgb(177, 177, 177);</string>
    </property>
    <property name="font">
     <font>
+     <family>Noto Mono</family>
      <pointsize>18</pointsize>
     </font>
    </property>
@@ -432,7 +318,7 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="label_100">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>600</x>
      <y>130</y>
      <width>81</width>
      <height>51</height>
@@ -440,6 +326,7 @@ color: rgb(177, 177, 177);</string>
    </property>
    <property name="font">
     <font>
+     <family>Noto Mono</family>
      <pointsize>18</pointsize>
     </font>
    </property>
@@ -456,7 +343,7 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="label_200">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>600</x>
      <y>190</y>
      <width>81</width>
      <height>51</height>
@@ -464,6 +351,7 @@ color: rgb(177, 177, 177);</string>
    </property>
    <property name="font">
     <font>
+     <family>Noto Mono</family>
      <pointsize>18</pointsize>
     </font>
    </property>
@@ -480,7 +368,7 @@ color: rgb(177, 177, 177);</string>
   <widget class="QLabel" name="label_muuSumma">
    <property name="geometry">
     <rect>
-     <x>380</x>
+     <x>560</x>
      <y>250</y>
      <width>121</width>
      <height>51</height>
@@ -488,6 +376,7 @@ color: rgb(177, 177, 177);</string>
    </property>
    <property name="font">
     <font>
+     <family>Noto Mono</family>
      <pointsize>14</pointsize>
     </font>
    </property>
@@ -500,6 +389,484 @@ color: rgb(177, 177, 177);</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+  </widget>
+  <widget class="QLineEdit" name="lineSumma">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>120</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Mono</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="widgetNP" native="true">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>260</y>
+     <width>391</width>
+     <height>351</height>
+    </rect>
+   </property>
+   <widget class="QPushButton" name="btnNP_0">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>277</y>
+      <width>80</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Noto Mono</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNP_1">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>16</y>
+      <width>80</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Noto Mono</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+    </property>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNP_ok">
+    <property name="geometry">
+     <rect>
+      <x>302</x>
+      <y>190</y>
+      <width>80</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 85, 0);</string>
+    </property>
+    <property name="text">
+     <string>OK</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNP_2">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>16</y>
+      <width>80</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Noto Mono</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+    </property>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNP_6">
+    <property name="geometry">
+     <rect>
+      <x>195</x>
+      <y>103</y>
+      <width>80</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Noto Mono</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+    </property>
+    <property name="text">
+     <string>6</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNP_clear">
+    <property name="geometry">
+     <rect>
+      <x>302</x>
+      <y>103</y>
+      <width>80</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 0);</string>
+    </property>
+    <property name="text">
+     <string>CLEAR</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNP_7">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>190</y>
+      <width>80</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Noto Mono</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+    </property>
+    <property name="text">
+     <string>7</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNP_4">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>103</y>
+      <width>80</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Noto Mono</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+    </property>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNP_8">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>190</y>
+      <width>80</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Noto Mono</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+    </property>
+    <property name="text">
+     <string>8</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNP_stop">
+    <property name="geometry">
+     <rect>
+      <x>302</x>
+      <y>16</y>
+      <width>80</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>STOP</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNP_9">
+    <property name="geometry">
+     <rect>
+      <x>195</x>
+      <y>190</y>
+      <width>80</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Noto Mono</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+    </property>
+    <property name="text">
+     <string>9</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNP_5">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>103</y>
+      <width>80</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Noto Mono</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+    </property>
+    <property name="text">
+     <string>5</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNP_3">
+    <property name="geometry">
+     <rect>
+      <x>195</x>
+      <y>16</y>
+      <width>80</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Noto Mono</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(87, 87, 87);
+color: rgb(177, 177, 177);</string>
+    </property>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

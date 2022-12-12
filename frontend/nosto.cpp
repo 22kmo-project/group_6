@@ -13,6 +13,7 @@ nosto::nosto(QString id_card, QByteArray token, QWidget *parent) :
     myId_card=id_card;
     webToken=token;
     getBalance();
+    amount = 0;
 
     ajastin4 = new QTimer;
     ajastin10 = new QTimer;
@@ -37,6 +38,22 @@ nosto::nosto(QString id_card, QByteArray token, QWidget *parent) :
     ui->label_100->setVisible(true);
     ui->label_200->setVisible(true);
     ui->label_muuSumma->setVisible(true);
+    ui->txtNosto->setVisible(true);
+    /*ui->btnNP_1->setVisible(false);
+    ui->btnNP_2->setVisible(false);
+    ui->btnNP_3->setVisible(false);
+    ui->btnNP_4->setVisible(false);
+    ui->btnNP_5->setVisible(false);
+    ui->btnNP_6->setVisible(false);
+    ui->btnNP_7->setVisible(false);
+    ui->btnNP_8->setVisible(false);
+    ui->btnNP_9->setVisible(false);
+    ui->btnNP_0->setVisible(false);
+    ui->btnNP_ok->setVisible(false);
+    ui->btnNP_clear->setVisible(false);
+    ui->btnNP_stop->setVisible(false);*/
+    ui->widgetNP->setVisible(false);
+    ui->lineSumma->setVisible(false);
 }
 
 nosto::~nosto()
@@ -56,26 +73,10 @@ void nosto::resetKaikkiAjastimet()
 
 void nosto::on_btn20_clicked()
 {
-    ui->btn20->setVisible(false);
-    ui->btn40->setVisible(false);
-    ui->btn60->setVisible(false);
-    ui->btn100->setVisible(false);
-    ui->btn200->setVisible(false);
-    ui->btn200->setVisible(false);
-    ui->btnMuuSumma->setVisible(false);
-    ui->label_20->setVisible(false);
-    ui->label_40->setVisible(false);
-    ui->label_60->setVisible(false);
-    ui->label_100->setVisible(false);
-    ui->label_200->setVisible(false);
-    ui->label_muuSumma->setVisible(false);
+    amountSelected();
 
-    ui->labelSumma->setVisible(true);
-
-    resetKaikkiAjastimet();
     amount=20;
-    ui->btnconfirm->setVisible(true);
-    ui->btnPeruuta->setVisible(true);
+
     ui->labelSumma->setText("Haluatko nostaa 20 euroa?");
     qDebug()<<"account_balance: "<< account_balance;
     withdraw(storeBalance, amount);
@@ -83,25 +84,10 @@ void nosto::on_btn20_clicked()
 
 void nosto::on_btn40_clicked()
 {
-    ui->btn20->setVisible(false);
-    ui->btn40->setVisible(false);
-    ui->btn60->setVisible(false);
-    ui->btn100->setVisible(false);
-    ui->btn200->setVisible(false);
-    ui->btn200->setVisible(false);
-    ui->btnMuuSumma->setVisible(false);
-    ui->label_20->setVisible(false);
-    ui->label_40->setVisible(false);
-    ui->label_60->setVisible(false);
-    ui->label_100->setVisible(false);
-    ui->label_200->setVisible(false);
-    ui->label_muuSumma->setVisible(false);
+    amountSelected();
 
-    ui->labelSumma->setVisible(true);
-    resetKaikkiAjastimet();
     amount=40;
-    ui->btnconfirm->setVisible(true);
-    ui->btnPeruuta->setVisible(true);
+
     ui->labelSumma->setText("Haluatko nostaa 40 euroa?");
     qDebug()<<"account_balance: "<< account_balance;
     withdraw(storeBalance, amount);
@@ -109,25 +95,10 @@ void nosto::on_btn40_clicked()
 
 void nosto::on_btn60_clicked()
 {
-    ui->btn20->setVisible(false);
-    ui->btn40->setVisible(false);
-    ui->btn60->setVisible(false);
-    ui->btn100->setVisible(false);
-    ui->btn200->setVisible(false);
-    ui->btn200->setVisible(false);
-    ui->btnMuuSumma->setVisible(false);
-    ui->label_20->setVisible(false);
-    ui->label_40->setVisible(false);
-    ui->label_60->setVisible(false);
-    ui->label_100->setVisible(false);
-    ui->label_200->setVisible(false);
-    ui->label_muuSumma->setVisible(false);
+    amountSelected();
 
-    ui->labelSumma->setVisible(true);
-    resetKaikkiAjastimet();
     amount=60;
-    ui->btnconfirm->setVisible(true);
-    ui->btnPeruuta->setVisible(true);
+
     ui->labelSumma->setText("Haluatko nostaa 60 euroa?");
     qDebug()<<"account_balance: "<< account_balance;
     withdraw(storeBalance, amount);
@@ -135,25 +106,10 @@ void nosto::on_btn60_clicked()
 
 void nosto::on_btn100_clicked()
 {
-    ui->btn20->setVisible(false);
-    ui->btn40->setVisible(false);
-    ui->btn60->setVisible(false);
-    ui->btn100->setVisible(false);
-    ui->btn200->setVisible(false);
-    ui->btn200->setVisible(false);
-    ui->btnMuuSumma->setVisible(false);
-    ui->label_20->setVisible(false);
-    ui->label_40->setVisible(false);
-    ui->label_60->setVisible(false);
-    ui->label_100->setVisible(false);
-    ui->label_200->setVisible(false);
-    ui->label_muuSumma->setVisible(false);
+    amountSelected();
 
-    ui->labelSumma->setVisible(true);
-    resetKaikkiAjastimet();
     amount=100;
-    ui->btnconfirm->setVisible(true);
-    ui->btnPeruuta->setVisible(true);
+
     ui->labelSumma->setText("Haluatko nostaa 100 euroa?");
     qDebug()<<"account_balance: "<< account_balance;
     withdraw(storeBalance, amount);
@@ -161,25 +117,10 @@ void nosto::on_btn100_clicked()
 
 void nosto::on_btn200_clicked()
 {
-    ui->btn20->setVisible(false);
-    ui->btn40->setVisible(false);
-    ui->btn60->setVisible(false);
-    ui->btn100->setVisible(false);
-    ui->btn200->setVisible(false);
-    ui->btn200->setVisible(false);
-    ui->btnMuuSumma->setVisible(false);
-    ui->label_20->setVisible(false);
-    ui->label_40->setVisible(false);
-    ui->label_60->setVisible(false);
-    ui->label_100->setVisible(false);
-    ui->label_200->setVisible(false);
-    ui->label_muuSumma->setVisible(false);
+    amountSelected();
 
-    ui->labelSumma->setVisible(true);
-    resetKaikkiAjastimet();
     amount=200;
-    ui->btnconfirm->setVisible(true);
-    ui->btnPeruuta->setVisible(true);
+
     ui->labelSumma->setText("Haluatko nostaa 200 euroa?");
     qDebug()<<"account_balance: "<< account_balance;
     withdraw(storeBalance, amount);
@@ -187,6 +128,10 @@ void nosto::on_btn200_clicked()
 
 void nosto::on_btnconfirm_clicked()
 {
+    ui->lineSumma->setVisible(false);
+    ui->lineSumma->clear();
+    ui->btnconfirm->setVisible(false);
+    ui->btnPeruuta->setVisible(false);
     resetKaikkiAjastimet();
     //withdraw(storeBalance, amount);
     qDebug()<<"account_balance: "<< account_balance;
@@ -217,49 +162,9 @@ void nosto::on_btnconfirm_clicked()
     {
         ui->labelSumma->setText("Tapahtuma hylätty, tilin kate ei riitä.");
         ajastin4->start(1000);
+        amount = 0;
     }
 
-        /*if (amount == 20)
-        {
-            resetKaikkiAjastimet();
-            withdraw(storeBalance, amount);
-
-            QMessageBox::information (this, "Nosto onnistui!", "Tilitäsi nostettiin 400 euroa.");
-        }*/
-        /*if(ui->box200->isChecked()) {
-            amount=200;
-            withdraw(storeBalance, amount);
-
-            QMessageBox::information (this, "Nosto onnistui!", "Tilitäsi nostettiin 200 euroa.");
-        }
-        if(ui->box100->isChecked()) {
-            amount=100;
-            withdraw(storeBalance, amount);
-
-            QMessageBox::information (this, "Nosto onnistui!", "Tilitäsi nostettiin 100 euroa.");
-        }
-        if(ui->box60->isChecked()) {
-            amount=60;
-            withdraw(storeBalance, amount);
-
-            QMessageBox::information (this, "Nosto onnistui!", "Tilitäsi nostettiin 60 euroa.");
-        }
-        if(ui->box40->isChecked()) {
-            amount=40;
-            withdraw(storeBalance, amount);
-
-            QMessageBox::information (this, "Nosto onnistui!", "Tilitäsi nostettiin 40 euroa.");
-        }
-        if (ui->box20->isChecked()) {
-            resetKaikkiAjastimet();
-            amount=20;
-            withdraw(storeBalance, amount);
-
-            QMessageBox::information (this, "Nosto onnistui!", "Tilitäsi nostettiin 20 euroa.");
-        }*/
-
-
-        //this->close();
 }
 
 void nosto::balanceSlot(QNetworkReply *reply)
@@ -315,7 +220,6 @@ void nosto::updateBalanceSlot(QNetworkReply *reply)
 
 void nosto::withdraw(double storeBalance, double amount)
 {
-
     storeBalance = storeBalance - amount;
     account_balance = QString::number(storeBalance);
 
@@ -381,11 +285,12 @@ void nosto::createTransactionSlot(QNetworkReply *reply)
 
 void nosto::on_btnback_clicked()
 {
-
     ajastin4->stop();
     ajastin10->stop();
     resetKaikkiAjastimet();
     this->close();
+    qDebug()<<ui->lineSumma;
+    qDebug()<<amount;
 }
 
 
@@ -393,7 +298,10 @@ void nosto::on_btnback_clicked()
 
 void nosto::on_btnPeruuta_clicked()
 {
+    amount=0;
+
     resetKaikkiAjastimet();
+    ui->btnback->setVisible(true);
     ui->btnPeruuta->setVisible(false);
     ui->btnconfirm->setVisible(false);
     ui->btn20->setVisible(true);
@@ -409,8 +317,161 @@ void nosto::on_btnPeruuta_clicked()
     ui->label_100->setVisible(true);
     ui->label_200->setVisible(true);
     ui->label_muuSumma->setVisible(true);
+    ui->txtNosto->setVisible(true);
 
     ui->labelSumma->setVisible(false);
+
+    ui->lineSumma->clear();
+    ui->lineSumma->setVisible(false);
+}
+
+void nosto::amountSelected()
+{
+    resetKaikkiAjastimet();
+    ui->btnback->setVisible(false);
+    ui->btn20->setVisible(false);
+    ui->btn40->setVisible(false);
+    ui->btn60->setVisible(false);
+    ui->btn100->setVisible(false);
+    ui->btn200->setVisible(false);
+    ui->btn200->setVisible(false);
+    ui->btnMuuSumma->setVisible(false);
+    ui->label_20->setVisible(false);
+    ui->label_40->setVisible(false);
+    ui->label_60->setVisible(false);
+    ui->label_100->setVisible(false);
+    ui->label_200->setVisible(false);
+    ui->label_muuSumma->setVisible(false);
+    ui->labelSumma->setVisible(true);
+    ui->btnconfirm->setVisible(true);
+    ui->btnPeruuta->setVisible(true);
+    ui->txtNosto->setVisible(false);
+}
+
+
+void nosto::on_btnMuuSumma_clicked()
+{
+    ui->widgetNP->setVisible(true);
+
+    ui->btnback->setVisible(false);
+    ui->btn20->setVisible(false);
+    ui->btn40->setVisible(false);
+    ui->btn60->setVisible(false);
+    ui->btn100->setVisible(false);
+    ui->btn200->setVisible(false);
+    ui->btn200->setVisible(false);
+    ui->btnMuuSumma->setVisible(false);
+    ui->label_20->setVisible(false);
+    ui->label_40->setVisible(false);
+    ui->label_60->setVisible(false);
+    ui->label_100->setVisible(false);
+    ui->label_200->setVisible(false);
+    ui->label_muuSumma->setVisible(false);
+
+    ui->lineSumma->setVisible(true);
+}
+
+
+void nosto::on_btnNP_1_clicked()
+{
+    resetKaikkiAjastimet();
+    ui->lineSumma->insert(QString('1'));
+}
+void nosto::on_btnNP_2_clicked()
+{
+    resetKaikkiAjastimet();
+    ui->lineSumma->insert(QString('2'));
+}
+void nosto::on_btnNP_3_clicked()
+{
+    resetKaikkiAjastimet();
+    ui->lineSumma->insert(QString('3'));
+}
+void nosto::on_btnNP_4_clicked()
+{
+    resetKaikkiAjastimet();
+    ui->lineSumma->insert(QString('4'));
+}
+void nosto::on_btnNP_5_clicked()
+{
+    resetKaikkiAjastimet();
+    ui->lineSumma->insert(QString('5'));
+}
+void nosto::on_btnNP_6_clicked()
+{
+    resetKaikkiAjastimet();
+    ui->lineSumma->insert(QString('6'));
+}
+void nosto::on_btnNP_7_clicked()
+{
+    resetKaikkiAjastimet();
+    ui->lineSumma->insert(QString('7'));
+}
+void nosto::on_btnNP_8_clicked()
+{
+    resetKaikkiAjastimet();
+    ui->lineSumma->insert(QString('8'));
+}
+void nosto::on_btnNP_9_clicked()
+{
+    resetKaikkiAjastimet();
+    ui->lineSumma->insert(QString('9'));
+}
+void nosto::on_btnNP_0_clicked()
+{
+    resetKaikkiAjastimet();
+    ui->lineSumma->insert(QString('0'));
+}
+void nosto::on_btnNP_stop_clicked()
+{
+    resetKaikkiAjastimet();
+    ui->btnback->setVisible(true);
+    ui->btnPeruuta->setVisible(false);
+    ui->btnconfirm->setVisible(false);
+    ui->btn20->setVisible(true);
+    ui->btn40->setVisible(true);
+    ui->btn60->setVisible(true);
+    ui->btn100->setVisible(true);
+    ui->btn200->setVisible(true);
+    ui->btn200->setVisible(true);
+    ui->btnMuuSumma->setVisible(true);
+    ui->label_20->setVisible(true);
+    ui->label_40->setVisible(true);
+    ui->label_60->setVisible(true);
+    ui->label_100->setVisible(true);
+    ui->label_200->setVisible(true);
+    ui->label_muuSumma->setVisible(true);
+    ui->txtNosto->setVisible(true);
+
+    ui->labelSumma->setVisible(false);
+    ui->widgetNP->setVisible(false);
+
+    ui->lineSumma->clear();
+    ui->lineSumma->setVisible(false);
+}
+void nosto::on_btnNP_clear_clicked()
+{
+    resetKaikkiAjastimet();
+    ui->lineSumma->clear();
+    amount = 0;
+}
+void nosto::on_btnNP_ok_clicked()
+{
+    resetKaikkiAjastimet();
+
+    amountSelected();
+
+    amount=ui->lineSumma->text().toDouble();
+    nostoSumma = QString::number(amount);
+
+    ui->labelSumma->setText("Haluatko nostaa "+nostoSumma+" euroa?");
+    qDebug()<<"account_balance: "<< account_balance;
+    withdraw(storeBalance, amount);
+
+    ui->btnconfirm->setVisible(true);
+    ui->btnPeruuta->setVisible(true);
+    ui->widgetNP->setVisible(false);
+    ui->lineSumma->setVisible(false);
 
 }
 
